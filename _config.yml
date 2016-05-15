@@ -1,0 +1,13 @@
+# Site settings
+title: KyuDevelop
+email: lee@kyuhyuk.kr
+description: KyuHyuk Lee Blog
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://kyuhyuk.kr" # the base hostname & protocol for your site
+facebook_username: LeeKyuHyuk
+twitter_username: LeeKyuHyuk
+github_username:  LeeKyuHyuk
+generator:  KyuHyuk Lee
+
+# Build settings
+markdown: kramdown

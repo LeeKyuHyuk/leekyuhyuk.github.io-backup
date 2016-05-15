@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "2015년 10월 24일 토요일"
+date:   2015-10-24 15:17:51 +0900
+category: Ordinary-Life
+image:  2015-10-24.jpg
+---
+![2015년 10월 24일 토요일]({{ site.url }}/assets/image/2015-10-24.jpg)
+
+사이폰 커피 . 코딩 . 성공적
