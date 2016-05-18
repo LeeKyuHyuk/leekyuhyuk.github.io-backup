@@ -1,0 +1,144 @@
+---
+layout: post
+title:  "Busybox를 사용하여 작은 x86용 리눅스를 만들어보자!"
+date:   2015-11-23 19:30:01 +0900
+category: Linux
+---
+out폴더를 만들고, out폴더로 들어갑니다.
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_1.png)
+
+{% highlight sh %}
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
+wget http://busybox.net/downloads/busybox-1.24.1.tar.bz2
+{% endhighlight %}
+
+Kernel과 Busybox 소스를 다운로드 받습니다.
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_2.png)
+
+
+{% highlight sh %}
+tar -xf linux-4.3.tar.xz
+tar -xf busybox-1.24.1.tar.bz2
+{% endhighlight %}
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_3.png)
+
+`linux-4.3`폴더로 이동하여 `make mrproper`를 한뒤, `make defconfig`를 해줍니다.
+
+아래 명령어로 `hostname`을 설정합니다.
+
+{% highlight sh %}
+$ sed -i "s/.*CONFIG_DEFAULT_HOSTNAME.*/CONFIG_DEFAULT_HOSTNAME=\"MicroLinux\"/" .config
+{% endhighlight %}
+
+`MicroLinux` 부분을 원하는 hostname으로 입력하면 됩니다.
+
+`make bzImage`으로 Kernel을 빌드합니다.
+
+Kernel 빌드가 끝나면 `../busybox-1.24.1` 명령어로 busybox-1.24.1 폴더로 이동합니다.
+
+`make clean`를 한뒤, `make defconfig`를 해줍니다.
+
+아래 명령어로 `.config` 파일을 수정합니다.
+
+{% highlight sh %}
+sed -i "s/.*CONFIG_STATIC.*/CONFIG_STATIC=y/" .config
+sed -e 's/.*CONFIG_FEATURE_HAVE_RPC.*/CONFIG_FEATURE_HAVE_RPC=n/' -i .config
+sed -e 's/.*CONFIG_FEATURE_INETD_RPC.*/CONFIG_FEATURE_INETD_RPC=n/' -i .config
+{% endhighlight %}
+
+`make busybox`를 한뒤, `make install`을 하여 Busybox를 빌드합니다.
+`cd ..`로 out 폴더로 이동한뒤 rootfs라는 폴더를 만들어줍니다.
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_5.png)
+
+`cp -R busybox-1.24.1/_install/* rootfs` 명령어로 10번에서 빌드한 Busybox를 rootfs로 복사합니다.
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_6.png)
+
+rootfs 폴더로 이동하여 `linuxrc` 파일을 삭제하고, `mkdir dev etc proc root src sys tmp`로 폴더를 생성한뒤, `chmod 1777 tmp`로 권한을 설정해줍니다.
+
+`etc` 폴더에 `bootscript.sh` 파일을 생성하고 아래와 같은 내용을 입력해줍니다.
+
+{% highlight sh %}
+#!/bin/sh
+dmesg -n 1
+mount -t devtmpfs none /dev
+mount -t proc none /proc
+mount -t sysfs none /sys
+
+for DEVICE in /sys/class/net/* ; do
+    ip link set \${DEVICE##*/} up
+    [ \${DEVICE##*/} != lo ] && udhcpc -b -i \${DEVICE##*/} -s /etc/rc.dhcp
+done
+{% endhighlight %}
+
+모두 입력했으면, `chmod +x bootscript.sh`로 권한을 설정합니다.
+`etc` 폴더에 `rc.dhcp` 파일을 만들어주고 아래와 같은 내용을 입력해줍니다.
+
+{% highlight sh %}
+ip addr add \$ip/\$mask dev \$interface
+
+if [ "\$router" ]; then
+  ip route add default via \$router dev \$interface
+fi
+{% endhighlight %}
+
+모두 입력했으면, `chmod +x rc.dhcp`로 권한을 설정합니다.
+
+`etc` 폴더에 `welcome.txt` 파일을 만들어주고 시스템이 가동되었을때 나타날 텍스트를 입력해줍니다.
+
+{% highlight sh %}
+####################
+#    Micro Linux   #
+####################
+{% endhighlight %}
+
+`etc` 폴더에 `inittab` 파일을 만들어주고 아래와 같이 내용을 입력합니다.
+
+{% highlight sh %}
+::sysinit:/etc/bootscript.sh
+::restart:/sbin/init
+::ctrlaltdel:/sbin/reboot
+::once:cat /etc/welcome.txt
+::respawn:/bin/cttyhack /bin/sh
+tty2::once:cat /etc/welcome.txt
+tty2::respawn:/bin/sh
+tty3::once:cat /etc/welcome.txt
+tty3::respawn:/bin/sh
+tty4::once:cat /etc/welcome.txt
+tty4::respawn:/bin/sh
+{% endhighlight %}
+
+`init`라는 파일을 `rootfs`에 생성하고 아래와 같이 내용을 입력합니다.
+
+{% highlight sh %}
+#!/bin/sh
+exec /sbin/init
+{% endhighlight %}
+
+그리고 `chmod +x init`로 권한을 설정합니다.
+
+{% highlight sh %}
+find . | cpio -H newc -o | gzip > ../rootfs.cpio.gz
+{% endhighlight %}
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_8.png)
+
+`cd ../linux-4.3 Kernel` 소스가 있는 폴더로 이동하고, 아래 명령어로 `Makefile`를 수정합니다.
+
+{% highlight sh %}
+$ sed -i 's/mkisofs/genisoimage/g' arch/x86/boot/Makefile
+{% endhighlight %}
+
+`make isoimage FDINITRD=../rootfs.cpio.gz` 명령어로 ISO 파일을 생성한뒤, `cp arch/x86/boot/image.iso ../MicroLinux.iso` out 폴더로 복사합니다.
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_9.png)
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_10.png)
+
+`qemu-system-x86_64 -cdrom MicroLinux.iso`로 QEMU에서 구동해봅니다.
+
+![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_11.png)
