@@ -142,3 +142,5 @@ $ sed -i 's/mkisofs/genisoimage/g' arch/x86/boot/Makefile
 `qemu-system-x86_64 -cdrom MicroLinux.iso`로 QEMU에서 구동해봅니다.
 
 ![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_11.png)
+
+> Reference: [http://minimal.linux-bg.org/](http://minimal.linux-bg.org/)
