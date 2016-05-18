@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "HC-06 블루투스를 사용하여 LED 켜고 끄기"
+date:   2013-06-12 22:35:44 +0900
+category: Arduino
+image:  2013-06-12_HC-06_1.png
+---
+아두이노에는 아래와 같이 연결하면 됩니다.
+
+![HC-06 블루투스를 사용하여 LED 켜고 끄기]({{ site.url }}/assets/image/2013-06-12_HC-06_1.png)
+
+HC-06는 아래와 같이 생겼습니다. RXD에 노란선, TXD에 갈색선 순서로 연결하시면 됩니다.
+
+![HC-06 블루투스를 사용하여 LED 켜고 끄기]({{ site.url }}/assets/image/2013-06-12_HC-06_2.jpg)
+
+아두이노 소스는 아래와 같이 입력하면 됩니다.
+
+{% highlight c %}
+#include <SoftwareSerial.h>
+
+int bluetoothTx = 2;
+int bluetoothRx = 3;
+int LED = 13;
+
+SoftwareSerial bluetooth(bluetoothTx, bluetoothRx);
+
+void setup() {
+  Serial.begin(9600);
+  delay(100);
+  bluetooth.begin(9600);
+  pinMode(LED, OUTPUT);
+}
+
+void loop() {
+  if(bluetooth.available()) {
+    char cmd = (char)bluetooth.read();
+
+    if(cmd == 'u') {
+      Serial.println("Red LED ON!");
+      digitalWrite(LED, HIGH);
+    }
+
+    if(cmd == 'd') {
+      Serial.println("Red LED OFF");
+      digitalWrite(LED, LOW);
+    }
+  }
+}
+{% endhighlight %}

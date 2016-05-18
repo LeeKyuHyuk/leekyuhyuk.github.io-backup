@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "0.96인치 128x64 OLED에 화면 출력을 해보자"
+date:   2014-06-19 17:14:13 +0900
+category: Arduino
+image:  2014-06-19_oled_1.jpg
+---
+요즘 웨어러블 디바이스가 인기인거같기도 하고 여름방학때 시간남을때 뭐할지 고민하다가 스마트워치나 한번 만들어볼까하고 OLED 모듈을 구매하게 되었다.
+
+![0.96인치 128x64 OLED에 화면 출력을 해보자]({{ site.url }}/assets/image/2014-06-19_oled_1.jpg)
+
+*대략 이런 느낌으로(?) 참고로 내 팔목은 남자치고 얇은 편이다*
+
+**준비물** : Arduino, Jumper wire 5개, OLED Module
+
+대략 **4만원 정도** 들었다!
+
+난 이미 집에 점퍼 와이어랑 아두이노 우노가 있어서 OLED 모듈만 구매하면 됐었다.
+
+
+네이버 지식쇼핑에서 '아두이노 OLED'를 검색해보니 0.96인치와 1.3인치 제품이 있었다.
+
+난 작고 아담하게 만들고 싶어서 0.96인치를 주문하였다.
+*(참고로 4개다 makepcb라는 곳에서 판다)*
+
+![0.96인치 128x64 OLED에 화면 출력을 해보자]({{ site.url }}/assets/image/2014-06-19_oled_2.png)
+
+![0.96인치 128x64 OLED에 화면 출력을 해보자]({{ site.url }}/assets/image/2014-06-19_oled_3.jpg)
+
+일단 OLED 모듈의 뒷면을 보면 V33, GND, CS, DC, RW, RD, RST, D0~D7, NC 총 16개의 핀들이 있다.
+
+우리는 V33, GND, CS, DC, RST, D0, D1만 사용하면 된다.
+
+![0.96인치 128x64 OLED에 화면 출력을 해보자]({{ site.url }}/assets/image/2014-06-19_oled_4.png)
+
+Arduino	 | 0.96 OLED
+-------- | ---
+3.3V     | V33
+GND      | GND
+12       | CS
+11       | DC
+13       | RST
+10       | D0
+9        | D1
+
+이제 화면에 Hello world!를 출력해보자.
+
+우선 출력하기전에 Adafruit SSD1306와 Adafruit GFX 라이브러리가 필요하다.
+
+[https://github.com/adafruit/Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306)
+
+[https://github.com/adafruit/Adafruit-GFX-Library](https://github.com/adafruit/Adafruit-GFX-Library)
+
+에서 받을 수 있다.
+
+받고 'C:\Program Files (x86)\Arduino\libraries'에 넣어주면 된다.
+
+![0.96인치 128x64 OLED에 화면 출력을 해보자]({{ site.url }}/assets/image/2014-06-19_oled_5.png)
+
+Arduino IDE를 실행하여 '파일' - '예제' - 'Adafruit_SSD1306' - 'ssd1306_128x64_spi'를 열고 아두이노에 넣으면 끝이다.
+
+![0.96인치 128x64 OLED에 화면 출력을 해보자]({{ site.url }}/assets/image/2014-06-19_oled_6.png)
+
+> 만약 Robot_Control과 관련된 오류가 뜨면 라이브러리 폴더에 있는 Robot_Control 폴더를 지우면 해결된다. *(서로 충돌을 일으키는거 같다)*
