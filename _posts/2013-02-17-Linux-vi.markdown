@@ -1,0 +1,151 @@
+---
+layout: post
+title:  "[Linux] vi"
+date:   2013-02-17 19:35:17 +0900
+category: Linux
+image:  2013-02-17-vim_logo.png
+---
+
+# vi란?
+
+> Visual edit의 약자이며, 키보드로 모든 것이 가능하고 다양한 기능이 있습니다.
+
+# 사용 방법
+
+{% highlight sh %}
+$ vi filename
+{% endhighlight %}
+
+(`filename` 부분에 존재하지 않는 파일명을 쓰면, 그 파일명으로 저장됩니다)
+
+- **입력모드 (Input mode)**
+	- 입력하는 모든 것이 편집버퍼에 입력됨
+	- 입력모드로 전환하는 방법 : <kbd>i</kbd>
+- **명령모드 (Command mode)**
+	- 입력하는 모든 것이 명령어로 해석됨
+	- 입력모드에서 명령모드로 전환하는 방법 : <kbd>ESC</kbd>
+- **데이터 입력시 vi 사용 순서**
+	1. 데이터를 입력하고 싶은 곳으로 커서를 옮긴다.
+	2. 입력하기 위해 <kbd>i</kbd>나 명령을 사용한다.
+	3. 데이터를 입력한다.
+	4. 명령모드로 바꾸기 위해 <kbd>ESC</kbd> 를 누른다.
+
+
+# vi 명령어
+
+- **커서 이동하기**
+	- 커서를 한 칸 왼쪽으로 이동 : <kbd>h</kbd>
+	- 커서를 한 칸 아래쪽으로 이동 : <kbd>j</kbd>
+	- 커서를 한 칸 위쪽으로 이동 : <kbd>k</kbd>
+	- 커서를 한 칸 오른쪽으로 이동 : <kbd>l</kbd>
+	- 줄 번호 n으로 이동하기 : nG (예, 10으로 이동하려면 <kbd>10</kbd><kbd>G</kbd>)
+
+- **삭제 및 복사**
+	- 커서위치의 1문자 삭제 : <kbd>x</kbd>
+	- 커서가 있는 행을 삭제 : <kbd>d</kbd> <kbd>d</kbd>
+	- 커서가 있는 곳부터 n 행 삭제 : n <kbd>d</kbd> <kbd>d</kbd>
+	- 커서가 있는 행을 복사 : <kbd>y</kbd> <kbd>y</kbd>
+	- 커서가 있는 행부터 n 행을 복사 : n <kbd>y</kbd> <kbd>y</kbd>
+- **종료 및 저장 *(명령모드)***
+	- 저장 `:w`
+	- 작업 내용을 저장하고 종료 `ZZ`
+	- 강제 저장 후 종료 `:wq!`
+	- 작업 내용을 저장하지 않고 종료 `:q!`
+
+
+이제 위의 명령을 한번 사용해봅시다!
+
+`$ vi HelloWorld.c` 명령어로 HelloWorld.c 파일을 만들어 입력을 시작합니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_2.png)
+
+위와 같은 화면이 나오면 입력모드로 전환하여(<kbd>i</kbd>를 누르면 입력모드로 전환됩니다) 다음과 같이 입력해봅니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_3.png)
+
+다 입력했다면 명령모드로 전환하여(<kbd>ESC</kbd>를 누르면 명령모드로 전환됩니다) `:wq` 을 사용하여 내용을 저장하고 vi를 종료합니다. (`:wq`를 입력하고 <kbd>Enter</kbd>를 눌러야 합니다)
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_4.png)
+
+`ls`으로 확인해보면 방금 생성된 HelloWorld.c 파일이 있습니다. `cat` 으로 내용을 볼수있습니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_6.png)
+
+
+이 소스파일을 컴파일 하려면 `$ gcc -o output input`과 같이 명령을 주면 됩니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_7.png)
+
+`$ ./HelloWorld` 를 입력하면 컴파일된 HelloWorld가 실행됩니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_8.png)
+
+한번 vi를 사용해서 내용을 다시 변경해보겠습니다. 다시 `$ vi HelloWorld.c` 명령을 해줍니다.
+
+<kbd>h</kbd>,<kbd>j</kbd>,<kbd>k</kbd>,<kbd>l</kbd>를 사용하여 `printf("Hello World!");`로 이동해봅니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_9.png)
+
+<kbd>x</kbd>를 눌러 `Hello World!` 부분을 지워봅니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_10.png)
+
+<kbd>i</kbd>를 눌러 입력모드로 변경한뒤 `My name is KyuHyuk Lee!\n`으로 변경해봅니다.
+
+그리고 `:wq` 으로 저장한뒤, `gcc`를 사용하여 컴파일 합니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_11.png)
+
+HelloWorld를 실행해봅니다. 그럼 아래와 같이 변경되어 있을것입니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_12.png)
+
+# vi설정(vi Config)
+
+`$ vi ~/.vimrc` 으로 .vimrc를 수정해줍니다.
+
+그리고 아래와 같이 입력합니다.
+
+{% highlight sh %}
+set autoindent
+set cindent
+set autowrite
+set ruler
+set backspace=indent,eol,start
+set backup
+set history=50
+set showcmd
+set incsearch
+syntax on
+set hlsearch
+set magic
+set binary
+set ignorecase
+{% endhighlight %}
+
+Item     | Meaning
+-------- | ---
+set autoindent	|	자동 들여쓰기
+set cindent	|	C언어 프로그램 작성시 자동 들여쓰기
+set autowrite	|	파일 수정 시 자동 저장
+set ruler	|	커서 위치 표시
+set backspace=indent,eol,start	|	입력 모드에서 backspace 허용
+set backup	|	백업 파일 자동 생성
+set history=50	|	명령어 히스토리 기록 (50라인)
+set showcmd	|	명령어 표시
+set incsearch	|	순차적 검색 허용
+syntax on	|	컬러 터미널의 경우 Syntax에 맞게 컬러로 표시
+set hlsearch	|	문자열을 검색할 때 컬러로 표시
+set magic	|	문자열을 검색할 때 와일드카드 사용
+set binary	|	바이너리 파일 편집 가능
+set ignorecase	|	문자열을 검색할 때 대소문자 구별
+
+다 입력하고, `:wq` 명령으로 저장합니다.
+
+이제 vi로 파일을 열면 아래와 같이 보여집니다.
+
+![vi]({{ site.url }}/assets/image/2013-02-17-vi_14.png)
+
+# vi / vim 단축키 모음
+
+![vi / vim 단축키 모음]({{ site.url }}/assets/image/2013-02-17-vi-vim-cheat-sheet-ko.png)

@@ -2,8 +2,8 @@
 title: KyuDevelop
 email: lee@kyuhyuk.kr
 description: KyuHyuk Lee Blog
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://kyuhyuk.kr" # the base hostname & protocol for your site
+baseurl: ""
+url: "http://kyuhyuk.kr"
 facebook_username: LeeKyuHyuk
 twitter_username: LeeKyuHyuk
 github_username:  LeeKyuHyuk

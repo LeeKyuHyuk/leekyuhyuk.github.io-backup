@@ -60,6 +60,8 @@
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
 
 /* Make line numbers unselectable: excludes line numbers from copy-paste user ops */
-.highlight .lineno {-webkit-user-select: none;-moz-user-select: none; -o-user-select: none;} 
+.highlight .lineno {-webkit-user-select: none;-moz-user-select: none; -o-user-select: none;}
 .lineno::-moz-selection {background-color: transparent;} /* Mozilla specific */
 .lineno::selection {background-color: transparent;} /* Other major browsers */
+
+pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em;font-family:Menlo,Monaco,Consolas,"Courier New",monospace}code{padding:2px 4px;font-size:90%;color:#212121;background-color:#f9f2f4;border-radius:4px}kbd{padding:.1em .6em;border:1px solid rgba(63,63,63,0.25);-webkit-box-shadow:0 1px 0 rgba(63,63,63,0.25);box-shadow:0 1px 0 rgba(63,63,63,0.25);font-size:.7em;font-family:sans-serif;background-color:#fff;color:#333;border-radius:3px;display:inline-block;margin:0 .1em;white-space:nowrap}pre{display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:1.42857143;word-break:break-all;word-wrap:break-word;color:#333;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;background-color:transparent;border-radius:0}
