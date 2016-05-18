@@ -11,3 +11,7 @@ generator:  KyuHyuk Lee
 
 # Build settings
 markdown: kramdown
+
+# Plugins
+gems:
+  - jemoji
