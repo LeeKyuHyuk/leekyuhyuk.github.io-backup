@@ -5,7 +5,7 @@ date:   2014-06-23 23:11:43 +0900
 category: Arduino
 image:  2014-06-23_oled_1.jpg
 ---
-이전글 ['0.96인치 128x64 OLED에 원하는 글이나 그림을 출력해보자']({{ site.url }}/arduino/2014/06/20/096인치-128x64-OLED에-원하는-글이나-그림을-출력해보자.html)와 이어집니다.
+이전글 ['0.96인치 128x64 OLED에 원하는 글이나 그림을 출력해보자']({{ site.url }}/article/arduino/2014/06/20/096인치-128x64-OLED에-원하는-글이나-그림을-출력해보자.html)와 이어집니다.
 
 Arduino Time library가 필요합니다.
 
