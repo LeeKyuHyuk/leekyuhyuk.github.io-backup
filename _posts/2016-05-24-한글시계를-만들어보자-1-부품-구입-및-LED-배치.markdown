@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "한글시계를 만들어보자 - (1) 부품 구입 및 LED 배치"
+date:   2016-05-24 15:43:17 +0900
+category: Arduino
+image:  2016-05-24-hangul_clock_4.jpg
+---
+~~여자~~친구에게 선물로 뭘 해줄까 고민하다가 [HangulClock - 한글시계](https://github.com/suapapa/HangulClock)를 만들어 주기로 했습니다.
+
+혹시 공대생 매력을 어필하고 싶어 하는 사람이 있지 않을까 싶어서 제작 과정을 올려봅니다! ~~(하지만 우리는 여자친구가 없잖아? 아마 안될 거야 아마..)~~
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-24-hangul_clock_1.jpg)
+
+# 준비물
+
+준비물은 모두 [메카솔루션](http://mechasolution.com)에서 주문하였습니다.
+
+* [네오픽셀 스트립 RGBW LED - 1m당 30 LED 흰색 기판 (Adafruit NeoPixel Digital RGBW LED Strip - White PCB 30 LED/m)](http://mechasolution.com/shop/goods/goods_view.php?goodsno=12596)
+
+* [RTC 모듈 with battery (Real Time Clock Module (DS1307) V1.1 with Battery)](http://mechasolution.com/shop/goods/goods_view.php?goodsno=2838)
+
+* [9V 배럴잭 어댑터 / Barrel Jack Adapter](http://mechasolution.com/shop/goods/goods_view.php?goodsno=33)
+
+![완전 총알 배송!]({{ site.url }}/assets/image/2016-05-24-hangul_clock_2.jpg)
+
+1~2일이면 받아볼 수 있었습니다! 완전 총알 배송! :grin:
+
+# NeoPixel LED Strip 배치하기
+
+아래와 같이 NeoPixel LED Strip를 이어줍니다.
+
+![한글 시계 NeoPixel LED Strip 배치 레이아웃]({{ site.url }}/assets/image/2016-05-24-hangul_clock_3.png)
+
+납땜을 잘 못 해서 지저분하게 된 거 같습니다..:sweat:
+
+![한글 시계 NeoPixel LED Strip 배치 전면]({{ site.url }}/assets/image/2016-05-24-hangul_clock_4.jpg)
+
+튀어나오는 전선은 뒤로 넘겨서 깔끔하게 처리하였습니다!
+
+![한글 시계 NeoPixel LED Strip 배치 후면]({{ site.url }}/assets/image/2016-05-24-hangul_clock_5.jpg)
+
+# 브레드보드 레이아웃
+
+![한글 시계 브레드보드 레이아웃]({{ site.url }}/assets/image/2016-05-24-hangul_clock_6.png)
+
+[📎 Fritzing 프로젝트 다운로드]({{ site.url }}/assets/file/2016-05-24-hangul_clock_fritzing.zip)
+
+# 소프트웨어 업로드
+
+[Github - adafruit/Adafruit_NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel)에 접속하여 라이브러리를 다운로드 받습니다.
+
+[📎 Adafruit_NeoPixel 다운로드]({{ site.url }}/assets/file/2016-05-24-Adafruit_NeoPixel-master.zip)
+
+압축을 풀고 `C:\Program Files (x86)\Arduino\libraries`에 넣어줍니다.
+
+'파일 - 예제 - Adafruit NeoPixel - strandtest'를 불러온 뒤 아두이노에 업로드합니다.
+
+![아두이노 소프트웨어 업로드]({{ site.url }}/assets/image/2016-05-24-hangul_clock_6.png)
+
+업로드가 완료되면 아래와 같이 동작합니다.
+
+<video src="{{ site.url }}/assets/video/2016-05-24-hangul_clock_1.mp4" loop="loop" controls></video>
