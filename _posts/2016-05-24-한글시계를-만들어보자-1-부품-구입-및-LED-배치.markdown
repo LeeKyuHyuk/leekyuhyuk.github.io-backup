@@ -55,7 +55,7 @@ image:  2016-05-24-hangul_clock_4.jpg
 
 '파일 - 예제 - Adafruit NeoPixel - strandtest'를 불러온 뒤 아두이노에 업로드합니다.
 
-![아두이노 소프트웨어 업로드]({{ site.url }}/assets/image/2016-05-24-hangul_clock_6.png)
+![아두이노 소프트웨어 업로드]({{ site.url }}/assets/image/2016-05-24-hangul_clock_7.png)
 
 업로드가 완료되면 아래와 같이 동작합니다.
 
