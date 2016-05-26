@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "한글시계를 만들어보자 - (2) 프로토타입 케이스 제작"
+date:   2016-05-26 22:24:58 +0900
+category: Arduino
+image:  2016-05-26-hangul_clock_7.jpg
+---
+시계 케이스를 나무로 만들면 멋있을 거 같아 한번 폼보드로 프로토타입을 만들어보았습니다.
+
+'SketchUp'이라는 프로그램으로 그렸습니다.
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-26-hangul_clock_1.jpg)
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-26-hangul_clock_2.jpg)
+
+**상하** : 256mm * 150mm * 18mm
+
+**측면** : 220mm * 150mm * 18mm
+
+**지지대** : 220mm * 18mm * 18mm
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-26-hangul_clock_3.jpg)
+
+쓱싹쓱싹 칼질을 해볼까요?
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-26-hangul_clock_4.jpg)
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-26-hangul_clock_5.jpg)
+
+LED를 폼보드로 옮겼습니다.
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-26-hangul_clock_6.jpg)
+
+대략 완성하면 이런 모습이 되겠군요 :smirk:
+
+![HangulClock - 한글시계]({{ site.url }}/assets/image/2016-05-26-hangul_clock_7.jpg)
+
+이제 위에 써놓은 크기로 주문하면 멋있는 작품이 나올 거 같습니다.
+
+나무는 [TheDIY](http://www.thediy.co.kr)에서 주문하였습니다.
+
+* [삼나무 두께18mm](http://www.thediy.co.kr/goods/view?no=67836)
+
+* [타이트본드](http://www.thediy.co.kr/goods/view?no=1180)
+
+* [천사포 - 180방](http://www.thediy.co.kr/goods/view?no=188)
