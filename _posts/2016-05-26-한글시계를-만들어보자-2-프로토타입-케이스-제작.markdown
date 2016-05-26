@@ -44,3 +44,5 @@ LED를 폼보드로 옮겼습니다.
 * [타이트본드](http://www.thediy.co.kr/goods/view?no=1180)
 
 * [천사포 - 180방](http://www.thediy.co.kr/goods/view?no=188)
+
+![TheDIY 주문내역]({{ site.url }}/assets/image/2016-05-26-hangul_clock_8.png)
