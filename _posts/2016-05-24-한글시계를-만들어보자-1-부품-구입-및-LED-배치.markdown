@@ -15,11 +15,15 @@ image:  2016-05-24-hangul_clock_4.jpg
 
 준비물은 모두 [메카솔루션](http://mechasolution.com)에서 주문하였습니다.
 
+* Arduino
+
+* USB 케이블
+
 * [네오픽셀 스트립 RGBW LED - 1m당 30 LED 흰색 기판 (Adafruit NeoPixel Digital RGBW LED Strip - White PCB 30 LED/m)](http://mechasolution.com/shop/goods/goods_view.php?goodsno=12596)
 
 * [RTC 모듈 with battery (Real Time Clock Module (DS1307) V1.1 with Battery)](http://mechasolution.com/shop/goods/goods_view.php?goodsno=2838)
 
-* [9V 배럴잭 어댑터 / Barrel Jack Adapter](http://mechasolution.com/shop/goods/goods_view.php?goodsno=33)
+
 
 ![완전 총알 배송!]({{ site.url }}/assets/image/2016-05-24-hangul_clock_2.jpg)
 
