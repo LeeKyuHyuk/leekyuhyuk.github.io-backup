@@ -3,6 +3,7 @@ layout: post
 title:  "Busybox 기반의 작은 리눅스를 만들어 라즈베리 파이에서 부팅하기"
 date:   2016-07-08 09:31:48 +0900
 category: Raspberry-Pi
+image:  2016-07-08-How-to-make-tiny-linux-for-Raspberry-Pi-2_2.png
 ---
 
 ## 준비물
