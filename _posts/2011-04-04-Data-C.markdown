@@ -1,0 +1,152 @@
+---
+layout: post
+title:  "2장: 자료와 C"
+date:   2011-04-04 21:47:28 +0900
+category: C
+---
+
+2장에서는 아래의 내용을 설명할 것입니다:
+
+- `scanf()`
+- `printf()`와 `scanf()`를 사용하여 값을 읽고 쓰는 방법
+
+#### 간단한 예제 프로그램
+
+```c
+/* dollar.c -- 원화를 달러로 환전 */
+#include <stdio.h>
+int main(void) {
+	float won; /* 사용자가 가지고 있는 금액 (원화) */
+	float dollar; /* 변환한 달러의 금액 */
+	printf("원화를 달러로 환전합니다.\n");
+	printf("환전할 돈을 원화로 입력해주세요: ");
+	/* 환전할 돈을 입력받습니다 */
+	scanf("%f", &won);
+	/* 1달러는 1,104원으로 가정합니다 */
+	dollar = won / 1104.00;
+	printf("받은 %.0f원을 %.2f달러로 환전하였습니다.\n", won, dollar);
+	return 0;
+}
+```
+
+##### **< 출력 화면 >**
+```
+원화를 달러로 환전합니다.
+환전할 돈을 원화로 입력해주세요: 5600
+받은 5600원을 5.07달러로 환전하였습니다.
+```
+
+#### 예제에 대한 설명
+
+##### 1. **계산**
+
+C에서는 아래와 같이 계산할 수 있습니다.
+
+###### **예1)**
+```c
+#include <stdio.h>
+int main(void) {
+	int x = 9;
+	int y = 4;
+	int quotient = x / y;
+	int remainder = x % y;
+	printf("%d 나누기 %d의 결과:\n", x, y);
+	printf("몫: %d\n", quotient);
+	printf("나머지: %d\n", remainder);
+	return 0;
+}
+```
+
+###### **예2)**
+```c
+#include <stdio.h>
+int main(void) {
+	int x = 9;
+	int y = 4;
+	printf("%d 나누기 %d의 결과:\n", x, y);
+	printf("몫: %d\n", x / y);
+	printf("나머지: %d\n", x % y);
+	return 0;
+}
+```
+
+###### **예3)**
+```c
+#include <stdio.h>
+int main(void) {
+	printf("%d 나누기 %d의 결과:\n", 9, 4);
+	printf("몫: %d\n", 9 / 4);
+	printf("나머지: %d\n", 9 % 4);
+}
+```
+
+###### **산술 연산자 종류**
+
+|   | 시퀀스 | 의미 |
+| :-----------: | :------------ | :------------ |
+|  | 기본 할당 | a=b |
+|  | 덧셈 | a+b |
+|  | 뺄셈 | a-b |
+|  | 단항 덧셈 (정수 승급) | +a |
+|  | 단항 뺄셈 (반수) | -a |
+|  | 곱셈 | a*b |
+|  | 나눗셈 | a/b |
+|  | 모듈러 (나머지) | a%b |
+| 증가 | 전위 | ++a |
+|  | 후위 | a++ |
+| 감소 | 전위 | --a |
+|  | 후위 | a-- |
+
+##### 2. **scanf()**
+
+`scanf()`는 변수에 데이터를 저장하기 위해 사용됩니다.
+
+사용방법은 '[1장: C언어 소개]({{ site.url }}/article/c/2011/04/03/Introducing-C)'에서 소개한 `printf()`와 비슷합니다.
+
+```c
+scanf("%서식", &변수);
+```
+
+여기서 중요한점은 변수앞에 `&`를 넣는다는것입니다.
+
+###### **예1)**
+```c
+/* convert.c - 입력받은 숫자를 8, 10, 16진법으로 출력 */
+#include <stdio.h>
+int main(void) {
+	int num;
+	printf("숫자를 입력해주세요: ");
+	scanf("%d", &num);
+	printf("숫자 %d을 입력받았습니다.\n", num);
+	printf("dec = %d, octal = %o, hex = %x\n", num, num, num);
+	printf("dec = %d, octal = %#o, hex = %#x\n", num, num, num);
+}
+```
+
+###### **< 출력 화면 >**
+```
+숫자를 입력해주세요: 20161004
+숫자 20161004을 입력 받았습니다.
+dec = 20161004, octal = 114720754, hex = 133a1ec
+dec = 20161004, octal = 0114720754, hex = 0x133a1ec
+```
+
+###### **예2)**
+```c
+/* charcode.c - 문자에 대한 코드를 출력 */
+#include <stdio.h>
+int main(void) {
+	char ch;
+	printf("문자를 입력해주세요: ");
+	scanf("%c", &ch);
+	printf("%c의 코드는 %d입니다.\n", ch, ch);
+	return 0;
+}
+
+```
+
+###### **< 출력 화면 >**
+```
+문자를 입력해주세요: F
+F의 코드는 70입니다.
+```

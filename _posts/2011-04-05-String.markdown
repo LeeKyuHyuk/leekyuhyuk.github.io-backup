@@ -1,0 +1,163 @@
+---
+layout: post
+title:  "3장: 문자열"
+date:   2011-04-05 19:57:21 +0900
+category: C
+---
+
+3장에서는 아래의 내용을 설명할 것입니다:
+
+- String(문자열)
+- #define
+- sizeof
+- strlen()
+
+#### 예제
+
+```c
+// name.c -- What's your name?
+#include <stdio.h>
+#include <string.h> // strlen()를 사용하기위해 추가
+#define SIZE 20
+int main() {
+	int size, letters;
+	char name[SIZE];
+	printf("이름을 입력해주세요: ");
+	scanf("%s", name);
+	size = sizeof name;
+	letters = strlen(name);
+	printf("안녕하세요. %s씨! 당신의 이름은 %d글자 이시군요.\n", name, letters);
+	printf("이 데이터를 저장하기 위해 %d 바이트가 사용되었습니다.\n", size);
+	return 0;
+}
+```
+
+##### **< 출력 화면 >**
+```
+이름을 입력해주세요: KyuHyuk
+안녕하세요. KyuHyuk씨! 당신의 이름은 7글자 이시군요.
+이 데이터를 저장하기 위해 20 바이트가 사용되었습니다.
+```
+
+#### 예제에 대한 설명
+
+##### 1. **#define**
+
+**#define**은 특성 숫자, 함수, 프로그램 블록을 다른 형태로 변환 지정합니다.
+
+다양한 선언이 가능하며 조건은 선언 된 그 줄에 만 적용됩니다.
+
+다음 줄로 연결하려면 '\'을 사용하여 한 줄 처럼 코딩하면 됩니다.
+
+###### **예1)**
+
+```c
+/* dollar2.c -- 원화를 달러로 환전 */
+#include <stdio.h>
+#define DOLLAR 1104.00
+int main(void) {
+	float won; /* 사용자가 가지고 있는 금액 (원화) */
+	float dollar; /* 변환한 달러의 금액 */
+	printf("원화를 달러로 환전합니다.\n");
+	printf("환전할 돈을 원화로 입력해주세요: ");
+	/* 환전할 돈을 입력받습니다 */
+	scanf("%f", &won);
+	/* 1달러는 1,104원으로 가정합니다 */
+	dollar = won / DOLLAR;
+	printf("받은 %.0f원을 %.2f달러로 환전하였습니다.\n", won, dollar);
+	return 0;
+}
+```
+
+###### **< 출력 화면 >**
+```
+원화를 달러로 환전합니다.
+환전할 돈을 원화로 입력해주세요: 5600
+받은 5600원을 5.07달러로 환전하였습니다.
+```
+
+###### **예2)**
+
+```c
+#include <stdio.h>
+#define ERROR_MESSAGE "에러가 발생하였습니다."
+int main(void) {
+	printf("%s\n", ERROR_MESSAGE);
+	return 0;
+}
+```
+
+###### **< 출력 화면 >**
+```
+에러가 발생하였습니다.
+```
+
+##### 2. **문자열**
+
+```c
+char name[SIZE];
+```
+변수명 뒤에 `[]`이 있는 경우에는 배열이라고 합니다.
+
+위의 코드 같은 경우에는 문자형의 SIZE 크기의 name이라는 변수를 선언합니다.
+
+```c
+char name[12];
+```
+위와 같이 정의하게 되면 name 변수에는 11글자를 입력할 수 있습니다.
+
+12글자가 아니고 11글자인 이유는 문자열의 마지막은 항상 `\0`(null character)가 들어가기 때문입니다.
+
+| name[0] | name[1] | name[2] |  name[3] |  name[4] |  name[5] |  name[6] |  name[7] |  name[8] |  name[9] | name[10] | name[11] |
+| :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| `H` | `e` | `l` | `l` | `o` | ` ` | `w` | `o` | `r` | `l` | `d` | `\0` |
+
+##### 3. **sizeof**
+
+```c
+sizeof(자료형 또는 변수);
+```
+
+`sizeof`는 괄호 안에 있는 대상이 메모리를 얼마나 차지하고 있는지 계산합니다.
+
+###### **예)**
+
+```c
+#include <stdio.h>
+int main(void) {
+	printf("char=%d\n",sizeof(char));
+	printf("int=%d\n",sizeof(int));
+	printf("double=%d\n",sizeof(double));
+	printf("\"Hello\"=%d\n",sizeof("Hello"));
+	return 0;
+}
+```
+
+###### **< 출력 화면 >**
+```
+char=1
+int=4
+double=8
+"Hello"=6
+```
+
+##### 4. **strlen()**
+
+[strlen()](http://www.cplusplus.com/reference/cstring/strlen/)은 문자열의 길이를 구할 때 사용합니다.
+
+###### **예)**
+```c
+#include <stdio.h>
+#include <string.h>
+int main(void) {
+	char name[10] = "KyuHyuk";
+	int length = strlen(name);
+	printf("length=%d\n", length);
+	return 0;
+}
+```
+
+###### **< 출력 화면 >**
+```
+length=7
+```
