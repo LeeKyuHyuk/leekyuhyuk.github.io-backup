@@ -1,68 +1,105 @@
 ---
 layout: post
-title:  "Busybox를 사용하여 작은 x86용 리눅스를 만들어보자!"
+title:  "Busybox를 사용하여 작은 리눅스를 만들어보자!"
 date:   2015-11-23 19:30:01 +0900
 category: Linux
 ---
-out폴더를 만들고, out폴더로 들어갑니다.
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_1.png)
+이 문서는 [Busybox](https://www.busybox.net)를 사용하여 작은 리눅스 시스템을 만드는 방법 설명하고 있습니다.
 
-{% highlight sh %}
-wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
-wget http://busybox.net/downloads/busybox-1.24.1.tar.bz2
-{% endhighlight %}
+**소스 코드**: 소스 코드는 [LeeKyuHyuk/How-to-Make-a-Micro-Linux](https://github.com/LeeKyuHyuk/How-to-Make-a-Micro-Linux)의 [src](https://github.com/LeeKyuHyuk/How-to-Make-a-Micro-Linux/tree/master/src) 폴더에 있습니다. 각 단계는 다른 관련 파일에 대한 링크가 포함됩니다.
 
-Kernel과 Busybox 소스를 다운로드 받습니다.
+**기여하기**: 이 강좌는 누구나 참여가 가능합니다. 이 문서에 문제가 있다면 [LeeKyuHyuk/How-to-Make-a-Micro-Linux](https://github.com/LeeKyuHyuk/How-to-Make-a-Micro-Linux)에 pull-request 해주시기 바랍니다.
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_2.png)
+![Screen](https://github.com/LeeKyuHyuk/How-to-Make-a-Micro-Linux/raw/master/preview.png)
 
+#### 1장: BusyBox 소개와 준비물
 
-{% highlight sh %}
-tar -xf linux-4.3.tar.xz
-tar -xf busybox-1.24.1.tar.bz2
-{% endhighlight %}
+##### **BusyBox는 무엇인가요?**
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_3.png)
+> BusyBox은 여러가지 유닉스 도구들을 하나의 실행파일로 만들어놓은 소프트웨어 입니다.
+>
+> 출처: [Wikipedia - BusyBox](https://en.wikipedia.org/wiki/BusyBox)
 
-`linux-4.3`폴더로 이동하여 `make mrproper`를 한뒤, `make defconfig`를 해줍니다.
+##### **BusyBox에서 지원하는 명령어**
 
-아래 명령어로 `hostname`을 설정합니다.
+`[`, `[[`, `acpid`, `addgroup`, `adduser`, `adjtimex`, `ar`, `arp`, `arping`, `ash`, `awk`, `basename`, `beep`, `blkid`, `brctl`, `bunzip2`, `bzcat`, `bzip2`, `cal`, `cat`, `catv`, `chat`, `chattr`, `chgrp`, `chmod`, `chown`, `chpasswd`, `chpst`, `chroot`, `chrt`, `chvt`, `cksum`, `clear`, `cmp`, `comm`, `cp`, `cpio`, `crond`, `crontab`, `cryptpw`, `cut`, `date`, `dc`, `dd`, `deallocvt`, `delgroup`, `deluser`, `depmod`, `devmem`, `df`, `dhcprelay`, `diff`, `dirname`, `dmesg`, `dnsd`, `dnsdomainname`, `dos2unix`, `dpkg`, `du`, `dumpkmap`, `dumpleases`, `echo`, `ed`, `egrep`, `eject`, `env`, `envdir`, `envuidgid`, `expand`, `expr`, `fakeidentd`, `false`, `fbset`, `fbsplash`, `fdflush`, `fdformat`, `fdisk`, `fgrep`, `find`, `findfs`, `flash_lock`, `flash_unlock`, `fold`, `free`, `freeramdisk`, `fsck`, `fsck.minix`, `fsync`, `ftpd`, `ftpget`, `ftpput`, `fuser`, `getopt`, `getty`, `grep`, `gunzip`, `gzip`, `hd`, `hdparm`, `head`, `hexdump`, `hostid`, `hostname`, `httpd`, `hush`, `hwclock`, `id`, `ifconfig`, `ifdown`, `ifenslave`, `ifplugd`, `ifup`, `inetd`, `init`, `inotifyd`, `insmod`, `install`, `ionice`, `ip`, `ipaddr`, `ipcalc`, `ipcrm`, `ipcs`, `iplink`, `iproute`, `iprule`, `iptunnel`, `kbd_mode`, `kill`, `killall`, `killall5`, `klogd`, `last`, `length`, `less`, `linux32`, `linux64`, `linuxrc`, `ln`, `loadfont`, `loadkmap`, `logger`, `login`, `logname`, `logread`, `losetup`, `lpd`, `lpq`, `lpr`, `ls`, `lsattr`, `lsmod`, `lzmacat`, `lzop`, `lzopcat`, `makemime`, `man`, `md5sum`, `mdev`, `mesg`, `microcom`, `mkdir`, `mkdosfs`, `mkfifo`, `mkfs.minix`, `mkfs.vfat`, `mknod`, `mkpasswd`, `mkswap`, `mktemp`, `modprobe`, `more`, `mount`, `mountpoint`, `mt`, `mv`, `nameif`, `nc`, `netstat`, `nice`, `nmeter`, `nohup`, `nslookup`, `od`, `openvt`, `passwd`, `patch`, `pgrep`, `pidof`, `ping`, `ping6`, `pipe_progress`, `pivot_root`, `pkill`, `popmaildir`, `printenv`, `printf`, `ps`, `pscan`, `pwd`, `raidautorun`, `rdate`, `rdev`, `readlink`, `readprofile`, `realpath`, `reformime`, `renice`, `reset`, `resize`, `rm`, `rmdir`, `rmmod`, `route`, `rpm`, `rpm2cpio`, `rtcwake`, `run-parts`, `runlevel`, `runsv`, `runsvdir`, `rx`, `script`, `scriptreplay`, `sed`, `sendmail`, `seq`, `setarch`, `setconsole`, `setfont`, `setkeycodes`, `setlogcons`, `setsid`, `setuidgid`, `sh`, `sha1sum`, `sha256sum`, `sha512sum`, `showkey`, `slattach`, `sleep`, `softlimit`, `sort`, `split`, `start-stop-daemon`, `stat`, `strings`, `stty`, `su`, `sulogin`, `sum`, `sv`, `svlogd`, `swapoff`, `swapon`, `switch_root`, `sync`, `sysctl`, `syslogd`, `tac`, `tail`, `tar`, `taskset`, `tcpsvd`, `tee`, `telnet`, `telnetd`, `test`, `tftp`, `tftpd`, `time`, `timeout`, `top`, `touch`, `tr`, `traceroute`, `true`, `tty`, `ttysize`, `udhcpc`, `udhcpd`, `udpsvd`, `umount`, `uname`, `uncompress`, `unexpand`, `uniq`, `unix2dos`, `unlzma`, `unlzop`, `unzip`, `uptime`, `usleep`, `uudecode`, `uuencode`, `vconfig`, `vi`, `vlock`, `volname`, `watch`, `watchdog`, `wc`, `wget`, `which`, `who`, `whoami`, `xargs`, `yes`, `zcat`, `zcip`
 
-{% highlight sh %}
-$ sed -i "s/.*CONFIG_DEFAULT_HOSTNAME.*/CONFIG_DEFAULT_HOSTNAME=\"MicroLinux\"/" .config
-{% endhighlight %}
+##### **Micro Linux를 만들기 위한 준비물:**
 
-`MicroLinux` 부분을 원하는 hostname으로 입력하면 됩니다.
+- BusyBox [https://www.busybox.net](https://www.busybox.net)
+- Linux Kernel [https://www.kernel.org](https://www.kernel.org)
+- Syslinux [https://www.kernel.org/pub/linux/utils/boot/syslinux](https://www.kernel.org/pub/linux/utils/boot/syslinux)
 
-`make bzImage`으로 Kernel을 빌드합니다.
+#### 2장: 커널과 BusyBox 빌드
 
-Kernel 빌드가 끝나면 `../busybox-1.24.1` 명령어로 busybox-1.24.1 폴더로 이동합니다.
+##### **소스코드 다운로드**
 
-`make clean`를 한뒤, `make defconfig`를 해줍니다.
+```bash
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.8.tar.xz
+wget http://busybox.net/downloads/busybox-1.25.0.tar.bz2
+tar -xf linux-4.8.tar.xz
+tar -xf busybox-1.25.0.tar.bz2
+```
 
-아래 명령어로 `.config` 파일을 수정합니다.
+##### **커널 설정**
 
-{% highlight sh %}
+```bash
+cd linux-4.8
+make mrproper
+make defconfig
+```
+
+HOSTNAME을 설정합니다.
+
+```bash
+sed -i "s/.*CONFIG_DEFAULT_HOSTNAME.*/CONFIG_DEFAULT_HOSTNAME=\""$(HOSTNAME)"\"/" .config
+```
+
+##### **커널 빌드**
+
+```bash
+make bzImage
+```
+
+##### **BusyBox 설정**
+
+```bash
+cd busybox-1.25.0
+make clean
+make defconfig
 sed -i "s/.*CONFIG_STATIC.*/CONFIG_STATIC=y/" .config
-sed -e 's/.*CONFIG_FEATURE_HAVE_RPC.*/CONFIG_FEATURE_HAVE_RPC=n/' -i .config
-sed -e 's/.*CONFIG_FEATURE_INETD_RPC.*/CONFIG_FEATURE_INETD_RPC=n/' -i .config
-{% endhighlight %}
+```
 
-`make busybox`를 한뒤, `make install`을 하여 Busybox를 빌드합니다.
-`cd ..`로 out 폴더로 이동한뒤 rootfs라는 폴더를 만들어줍니다.
+##### **BusyBox 설치**
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_5.png)
+```bash
+make busybox
+make install
+```
 
-`cp -R busybox-1.24.1/_install/* rootfs` 명령어로 10번에서 빌드한 Busybox를 rootfs로 복사합니다.
+#### 3장: 루트 파일시스템 구축
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_6.png)
+`rootfs` 폴더를 생성하고 BusyBox를 복사한 뒤 `linuxrc` 파일을 삭제합니다.
 
-rootfs 폴더로 이동하여 `linuxrc` 파일을 삭제하고, `mkdir dev etc proc root src sys tmp`로 폴더를 생성한뒤, `chmod 1777 tmp`로 권한을 설정해줍니다.
+```bash
+mkdir rootfs
+cp -R busybox-1.25.0/_install/* rootfs
+cd rootfs
+rm -f linuxrc
+```
 
-`etc` 폴더에 `bootscript.sh` 파일을 생성하고 아래와 같은 내용을 입력해줍니다.
+`dev`, `etc`, `proc`, `root`, `src`, `sys`, `tmp` 폴더를 생성하고 `tmp` 폴더에 권한을 부여합니다.
 
-{% highlight sh %}
+```bash
+mkdir dev etc proc root src sys tmp
+chmod 1777 tmp
+```
+
+`etc/bootscript.sh`를 생성하고 권한을 부여합니다.
+
+```bash
+cat > etc/bootscript.sh << "EOF"
 #!/bin/sh
 dmesg -n 1
 mount -t devtmpfs none /dev
@@ -73,32 +110,14 @@ for DEVICE in /sys/class/net/* ; do
     ip link set \${DEVICE##*/} up
     [ \${DEVICE##*/} != lo ] && udhcpc -b -i \${DEVICE##*/} -s /etc/rc.dhcp
 done
-{% endhighlight %}
+EOF
+chmod +x etc/bootscript.sh
+```
 
-모두 입력했으면, `chmod +x bootscript.sh`로 권한을 설정합니다.
-`etc` 폴더에 `rc.dhcp` 파일을 만들어주고 아래와 같은 내용을 입력해줍니다.
+`etc/inittab`를 생성합니다.
 
-{% highlight sh %}
-ip addr add \$ip/\$mask dev \$interface
-
-if [ "\$router" ]; then
-  ip route add default via \$router dev \$interface
-fi
-{% endhighlight %}
-
-모두 입력했으면, `chmod +x rc.dhcp`로 권한을 설정합니다.
-
-`etc` 폴더에 `welcome.txt` 파일을 만들어주고 시스템이 가동되었을때 나타날 텍스트를 입력해줍니다.
-
-{% highlight sh %}
-####################
-#    Micro Linux   #
-####################
-{% endhighlight %}
-
-`etc` 폴더에 `inittab` 파일을 만들어주고 아래와 같이 내용을 입력합니다.
-
-{% highlight sh %}
+```bash
+cat > etc/inittab << "EOF"
 ::sysinit:/etc/bootscript.sh
 ::restart:/sbin/init
 ::ctrlaltdel:/sbin/reboot
@@ -110,37 +129,99 @@ tty3::once:cat /etc/welcome.txt
 tty3::respawn:/bin/sh
 tty4::once:cat /etc/welcome.txt
 tty4::respawn:/bin/sh
-{% endhighlight %}
+EOF
+```
 
-`init`라는 파일을 `rootfs`에 생성하고 아래와 같이 내용을 입력합니다.
+`etc/rc.dhcp`를 생성하고 권한을 부여합니다.
 
-{% highlight sh %}
+```bash
+cat > etc/rc.dhcp << "EOF"
+ip addr add \$ip/\$mask dev \$interface
+
+if [ "\$router" ]; then
+  ip route add default via \$router dev \$interface
+fi
+EOF
+chmod +x etc/rc.dhcp
+```
+
+`etc/welcome.txt`를 생성합니다.
+
+```bash
+cat > etc/welcome.txt << "EOF"
+####################
+#    Micro Linux   #
+####################
+EOF
+```
+
+`init`를 생성하고 권한을 부여합니다.
+
+```bash
+cat > init << "EOF"
 #!/bin/sh
 exec /sbin/init
-{% endhighlight %}
+EOF
+chmod +x init
+```
 
-그리고 `chmod +x init`로 권한을 설정합니다.
+`rootfs.gz` 파일로 루트 파일시스템을 묶어줍니다.
 
-{% highlight sh %}
-find . | cpio -H newc -o | gzip > ../rootfs.cpio.gz
-{% endhighlight %}
+```bash
+find . | cpio -R root:root -H newc -o | gzip > ../rootfs.gz
+```
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_8.png)
+#### 4장: ISO 이미지 파일 생성
 
-`cd ../linux-4.3 Kernel` 소스가 있는 폴더로 이동하고, 아래 명령어로 `Makefile`를 수정합니다.
+`isoimage` 폴더를 생성합니다.
 
-{% highlight sh %}
-$ sed -i 's/mkisofs/genisoimage/g' arch/x86/boot/Makefile
-{% endhighlight %}
+```bash
+mkdir isoimage
+```
 
-`make isoimage FDINITRD=../rootfs.cpio.gz` 명령어로 ISO 파일을 생성한뒤, `cp arch/x86/boot/image.iso ../MicroLinux.iso` out 폴더로 복사합니다.
+2장에서 만든 커널을 `isoimage` 폴더로 복사합니다.
+```bash
+cp linux-4.8/arch/x86/boot/bzImage isoimage/kernel.gz
+```
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_9.png)
+3장에서 만든 `rootfs.gz` 파일을 `isoimage` 폴더로 이동합니다.
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_10.png)
+```bash
+mv rootfs.gz isoimage
+```
 
-`qemu-system-x86_64 -cdrom MicroLinux.iso`로 QEMU에서 구동해봅니다.
+'Syslinux'의 소스 코드를 다운로드해 압축을 해제하고 `isolinux.bin`, `ldlinux.c32` 파일을 `isoimage` 폴더로 복사합니다.
 
-![Busybox를 사용하여 작은 x86용 리눅스를 만들어보자]({{ site.url }}/assets/image/2015-11-23-microlinux_11.png)
+```bash
+wget https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-6.03.tar.xz
+tar -xf syslinux-6.03.tar.xz
+cp syslinux-6.03/bios/core/isolinux.bin isoimage
+cp syslinux-6.03/bios/com32/elflink/ldlinux/ldlinux.c32 isoimage
+```
 
-> Reference: [http://minimal.linux-bg.org/](http://minimal.linux-bg.org/)
+아래의 명령어로 ISO 이미지 파일을 생성합니다.
+
+```bash
+cd isoimage
+echo 'default kernel.gz initrd=rootfs.gz' > isolinux.cfg
+genisoimage \
+  -J \
+  -r \
+  -o ../MicroLinux.iso \
+  -b isolinux.bin \
+  -c boot.cat \
+  -input-charset UTF-8 \
+  -no-emul-boot \
+  -boot-load-size 4 \
+  -boot-info-table \
+  -joliet-long \
+  ./
+```
+
+#### 5장: QEMU에서 MicroLinux 부팅
+
+```bash
+qemu-system-x86_64 -cdrom MicroLinux.iso
+```
+
+![Screen](https://github.com/LeeKyuHyuk/How-to-Make-a-Micro-Linux/raw/master/Chapter-5/preview.gif)
