@@ -3,6 +3,7 @@ layout: post
 title:  "티백 박스를 만들어보자"
 date:   2016-10-24 15:54:00 +0900
 category: Ordinary-Life
+image:  2016-10-24-Tea-Compartment-Box_9.jpg
 ---
 ~~여자~~친구에게 곧 있을 빼빼로데이 선물로 뭘 해줄까 고민하다가 티백 박스를 만들어 주기로 했습니다.
 
@@ -42,4 +43,32 @@ category: Ordinary-Life
 
 [📎 '2016-10-24-Tea-Compartment-Box.skp' 다운로드]({{ site.url }}/assets/file/2016-10-24-Tea-Compartment-Box.skp)
 
-# 이 글은 위의 주문한 재료가 도착하고 조립이 완성되면 천천히 업데이트하겠습니다.
+# 제작 과정
+
+나무를 사포질한 뒤 스펀지를 사용하여 오일스테인을 발라줍니다.
+
+2~3일 정도 건조해준 뒤 한 번 더 사포질을 해줍니다.
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_6.jpg)
+
+위에 제공된 `2016-10-24-Tea-Compartment-Box.skp` 파일을 참고하여 조립합니다. 저는 Titebond를 사용하여 조립하였습니다.
+
+경첩은 집에 전동드릴이 없어서 얇은 못을 박았다가 다시 뽑아 구멍을 낸 뒤 드라이버를 사용하여 나사못을 박았습니다.
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_7.jpg)
+
+# 완성품 사진
+
+Twinings, TWG을 기준으로 만들었습니다. TWG 티백이 제일 넓은 줄 알았는데 스타벅스에서 파는 TEAVANA 티백이 더 넓더군요.. :sob:
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_8.jpg)
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_9.jpg)
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_10.jpg)
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_11.jpg)
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_12.jpg)
+
+![Tea Compartment Box]({{ site.url }}/assets/image/2016-10-24-Tea-Compartment-Box_13.jpg)
