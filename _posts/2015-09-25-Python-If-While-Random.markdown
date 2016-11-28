@@ -221,33 +221,30 @@ while number <= 100:
 
 이 모듈에 있는 함수들을 이용하기 위해서 `import`를 사용하는 것입니다.
 
-아래는 로또 번호 생성기 예제입니다.
-
 ```python
 #-*- coding: utf-8 -*-
 import random
 
-count = 0
-prevNumber = 0
-
-while count < 6:
-		# 1부터 45사이의 난수를 생성합니다
-        number = random.randint(1, 45)
-
-		# 방금 생성한 난수와 이전에 사용한 난수가
-		# 겹치는지 확인합니다.
-        if (number != prevNumber):
-                print number
-                prevNumber = number
-                count += 1
+number = random.randint(1, 10)
+print '제가 고른 숫자를 알아맞혀 보세요!'
+print '숫자의 범위는 1부터 10까지입니다!'
+answer = input()
+if (number == answer):
+        print '정답입니다! 어떻게 맞추셨어요?'
+else:
+        print '땡~ 틀렸어요. 정답은 ' + str(number) + '이었습니다!'
 ```
 ```
-5
-6
-1
-32
-14
-39
+제가 고른 숫자를 알아맞혀 보세요!
+숫자의 범위는 1부터 10까지입니다!
+9
+정답입니다! 어떻게 맞추셨어요?
+```
+```
+제가 고른 숫자를 알아맞혀 보세요!
+숫자의 범위는 1부터 10까지입니다!
+3
+땡~ 틀렸어요. 정답은 2이었습니다!
 ```
 
 #### **Boolean**
