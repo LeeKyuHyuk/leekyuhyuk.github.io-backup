@@ -184,7 +184,7 @@ category: Computer-Security
 	- 키 스트림은 난수 속성과 유사합니다.
 	- 충분히 긴 키 사용
 
-## 메시지 인증 ((Message Authentication)
+## 메시지 인증 (Message Authentication)
 
 - 공격으로부터 보호합니다.
 - 수신된 메시지가 진짜임을 확인합니다.
@@ -200,7 +200,7 @@ category: Computer-Security
 
 - MAC 값은 검증자(비밀 키를 소유한 사람)의 허가에 의해서 메시지의 데이터 인증과 더불어 무결성을 보호합니다.
 
-![Message Authentication Using a Message Authentication Code]({{ site.url }}/assets/image/2017-03-20-Computer-Security-Cryptographic-Tools_7.png)
+![Message Authentication Using a Message Authentication Code]({{ site.url }}/assets/image/2017-03-20-Computer-Security-Cryptographic-Tools_8.png)
 
 ## 해시(Hash) 함수 요구 사항
 
