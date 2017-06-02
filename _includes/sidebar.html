@@ -11,14 +11,28 @@
   <div id="secondary" class="secondary">
     <div id="widget-area" class="widget-area" role="complementary">
       <aside class="widget widget_search">
-        <form role="search" method="get" class="search-form" action="search.html">
-          <label>
+          <div id="widget search-container">
             <span class="screen-reader-text">검색:</span>
-            <input type="search" class="search-field" placeholder="검색 &hellip;" value="" name="s" title="검색:" />
-          </label>
-          <input type="submit" class="search-submit screen-reader-text" value="검색" />
-        </form>
+            <input type="search" class="search-field" placeholder="검색 &hellip;" value="" title="검색:" id="search-input" />
+          </div>
+          <aside class="widget_categories">
+            <ul id="results-container"></ul>
+          </aside>
       </aside>
+      <!-- Script pointing to jekyll-search.min.js -->
+      <script type='text/javascript' src="{{ "/js/jekyll-search.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+      <script type="text/javascript">
+        SimpleJekyllSearch({
+          searchInput: document.getElementById('search-input'),
+          resultsContainer: document.getElementById('results-container'),
+          json: '{{ site.baseurl }}/search/search.json',
+          searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+          noResultsText: '검색결과가 없습니다.',
+          limit: 50,
+          fuzzy: false,
+          exclude: ['Welcome']
+        })
+      </script>
       <aside class="widget widget_categories">
         <h2 class="widget-title">카테고리</h2>
         <ul>
