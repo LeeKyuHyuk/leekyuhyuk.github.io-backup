@@ -1,87 +1,51 @@
-<div id="sidebar" class="sidebar">
-  <header id="masthead" class="site-header" role="banner">
-    <div class="site-branding">
-      <h1 class="site-title">
-        <a href="{{ site.url }}" rel="home">{{ site.title }}</a>
-      </h1>
-      <p class="site-description">{{ site.description }}</p>
-      <button class="secondary-toggle">메뉴와 위젯</button>
+<div id="mw-panel">
+    <div id="p-logo" role="banner">
+        <a class="mw-wiki-logo" href="{{ site.url }}" title="{{ site.title }}"></a>
     </div>
-  </header>
-  <div id="secondary" class="secondary">
-    <div id="widget-area" class="widget-area" role="complementary">
-      <aside class="widget widget_search">
-          <div id="widget search-container">
-            <span class="screen-reader-text">검색:</span>
-            <input type="search" class="search-field" placeholder="검색 &hellip;" value="" title="검색:" id="search-input" />
-          </div>
-          <aside class="widget_categories">
-            <ul id="results-container"></ul>
-          </aside>
-      </aside>
-      <!-- Script pointing to jekyll-search.min.js -->
-      <script type='text/javascript' src="{{ "/js/jekyll-search.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
-      <script type="text/javascript">
-        SimpleJekyllSearch({
-          searchInput: document.getElementById('search-input'),
-          resultsContainer: document.getElementById('results-container'),
-          json: '{{ site.baseurl }}/search/search.json',
-          searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-          noResultsText: '검색결과가 없습니다.',
-          limit: 50,
-          fuzzy: false,
-          exclude: ['Welcome']
-        })
-      </script>
-      <aside class="widget widget_categories">
-        <h2 class="widget-title">카테고리</h2>
-        <ul>
-          <li>
-            <a href="{{ "/category.html" | prepend: site.baseurl }}" >모든 글 보기</a>
-          </li>
-          {% assign categories = site.categories | sort %}
-           {% for category in categories %}
-            <li>
-               <a href="/category/{{ category | first | slugify | prepend: site.baseurl }}.html">
-                       {{ category[0] | replace:'-', ' ' }}
-               </a>
-           </li>
-           {% endfor %}
-        </ul>
-      </aside>
-      <aside class="widget widget_recent_entries">
-        <h2 class="widget-title">최근 글</h2>
-        <ul>
-          {% for post in site.posts limit:10 %}
-          <li>
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </aside>
-      <aside class="widget widget_meta">
-        <h2 class="widget-title">그 밖의 기능</h2>
-        <ul>
-          <li>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </li>
-          <li>
-            <a href="mailto:{{ site.email }}">E-mail</a>
-          </li>
-          <li>
-            <a href="https://github.com/{{ site.github_username }}">Github</a>
-          </li>
-          <li>
-            <a href="https://facebook.com/{{ site.facebook_username }}">Facebook</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a>
-          </li>
-          <li>
-            <a href="{{ "/feed.xml" | prepend: site.baseurl }}">Subscribe <abbr title="Really Simple Syndication">via RSS</abbr></a>
-          </li>
-        </ul>
-      </aside>
+    <div class="portal" role="navigation">
+        <h3>Navigation</h3>
+        <div class="body">
+            <ul>
+                <li><a href="{{ site.url }}">Main page</a></li>
+                <li><a href="{{ site.url }}/about">About</a></li>
+                <li><a href="{{ site.url }}/category/ordinary-life.html">Ordinary Life</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
+    <div class="portal" role="navigation">
+        <h3>Computer Science</h3>
+        <div class="body">
+            <ul>
+                <li><a href="{{ site.url }}/category/arduino.html">Arduino</a></li>
+                <li><a href="{{ site.url }}/category/c.html">C</a></li>
+                <li><a href="{{ site.url }}/category/computer-security.html">Computer Security</a></li>
+                <li><a href="{{ site.url }}/category/embedded-system.html">Embedded System</a></li>
+                <li><a href="{{ site.url }}/category/jekyll.html">Jekyll</a></li>
+                <li><a href="{{ site.url }}/category/linux.html">Linux</a></li>
+                <li><a href="{{ site.url }}/category/nodejs.html">Node.js</a></li>
+                <li><a href="{{ site.url }}/category/python.html">Python</a></li>
+                <li><a href="{{ site.url }}/category/raspberry-pi.html">Raspberry Pi</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="portal" role="navigation">
+        <h3>Other</h3>
+        <div class="body">
+            <ul>
+                <li><a href="{{ site.url }}/category/calculus-2.html">Calculus 2</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="portal" role="navigation">
+        <h3>Contact</h3>
+        <div class="body">
+            <ul>
+                <li><a href="mailto:{{ site.email }}">E-mail</a></li>
+                <li><a href="https://github.com/{{ site.github_username }}">Github</a></li>
+                <li><a href="https://facebook.com/{{ site.facebook_username }}">Facebook</a></li>
+                <li><a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a></li>
+                <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}">Subscribe <abbr title="Really Simple Syndication">via RSS</abbr></a></li>
+            </ul>
+        </div>
+    </div>
 </div>

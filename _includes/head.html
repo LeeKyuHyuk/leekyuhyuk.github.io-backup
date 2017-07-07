@@ -1,7 +1,6 @@
 <head>
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
   <meta name="generator" content="{{ site.generator }}" />
   <meta name="description" content="{% if page.excerpt %}{{ page.content | strip_html | strip_newlines | truncatewords: 160 }}{% else %}{{ site.description }}{% endif %}" />
   <meta property="og:type" content="article" />
@@ -40,23 +39,9 @@
   {% else %}
   <meta name="twitter:image" content="{{ site.url }}/assets/profile.jpg" />
   {% endif %}
-  <!--[if lt IE 9]>
-  <script src="{{ "/js/html5.js" | prepend: site.baseurl | prepend: site.url }}"></script>
-  <![endif]-->
-  <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ "/favicon.ico" | prepend: site.baseurl | prepend: site.url }}" >
-  <link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
-  <link rel='stylesheet' id='genericons-css'  href="{{ "/genericons/genericons.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
-  <link rel='stylesheet' id='twentyfifteen-style-css' href="{{ "/css/style.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
+  <link rel='stylesheet' href="{{ "/css/style.min.css?version=20170707" | prepend: site.baseurl | prepend: site.url }}" type='text/css' />
   <link rel='stylesheet' href="{{ "/css/syntax.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' />
-  <!--[if lt IE 9]>
-  <link rel='stylesheet' id='twentyfifteen-ie-css' href="{{ "css/ie.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
-  <![endif]-->
-  <!--[if lt IE 8]>
-  <link rel='stylesheet' id='twentyfifteen-ie7-css'  href="{{ "css/ie7.css" | prepend: site.baseurl | prepend: site.url }}" type='text/css' media='all' />
-  <![endif]-->
-  <script type='text/javascript' src="{{ "/js/jquery/jquery.js" | prepend: site.baseurl | prepend: site.url }}"></script>
-  <script type='text/javascript' src="{{ "/js/jquery/jquery-migrate.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
 </head>
