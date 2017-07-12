@@ -423,3 +423,335 @@ $$ \therefore Distance = | t <2, 2, 1 > | \Rightarrow | - \frac{7}{9} <2, 2, 1 >
 $$ = \frac{7}{9}  \sqrt{2^{2}+2^{2}+1^{2}} $$
 
 $$ = \frac{7}{3} $$
+
+---
+
+**Find the specific function value.**
+
+***Q27)*** Find $$ f(3, 6) $$ when $$ f(x, y) =  \sqrt{3x+y^{2}} $$
+
+***A27)***
+
+$$ f(3, 6) =  \sqrt{3(3) + (6)^{2}}  =  \sqrt{45}  $$
+
+$$ \therefore 3 \sqrt{5} $$
+
+<br>
+
+***Q28)*** Find $$ f(4, 0, 9) $$ when $$ f(x, y, z) = 4x^{2} + 4y^{2} - z^{2} $$
+
+***A28)***
+
+$$ f(4, 0, 9) = 4(4)^{2}+4(0)^{2}-(9)^{2} = 64 + 0 - 81 $$
+
+$$ \therefore -17 $$
+
+---
+
+**Provide an appropriate response.**
+
+***Q29)*** Find the extrema of $$ f(x, y, z) = x + yz $$ on the line defined by $$ x = 4(4 + t) $$, $$ y = t - 4 $$, and $$ z = t + 4 $$. Classify each extremum as a minimum or maximum. (Hint: $$ w = f(x, y, z) $$ is a
+differentiable function of $$ t $$.)
+
+***A29)***
+
+$$ f(x, y, z) = x + yz = 4(4+t) + (t-4)(t+4) = t^2 + 4t $$
+
+$$ f'(t) = 2t +4 = 0 $$
+
+$$ t = -2 $$
+
+$$ minimum : ( \ 4(4+(-2)), (-2)-4, (-2)+4\ ) $$
+
+$$ \therefore minimum : (8, -6, 2) $$
+
+---
+
+**Find the limit.**
+
+***Q30)***  $$ \lim_{(x,y) \rightarrow (0,0)}  \frac{9x^{2} + 9y^{2} + 9}{9x^{2}-9y^{2}+6} $$
+
+***A30)*** $$  \lim_{(x,y) \rightarrow (0,0)}  \frac{9x^{2} + 9y^{2} + 9}{9x^{2}-9y^{2}+6} = \frac{9(0)^{2} + 9(0)^{2} + 9}{9(0)^{2}-9(0)^{2}+6} = \frac{9}{6}$$
+
+$$ \therefore \frac{3}{2} $$
+
+<br>
+
+***Q31)***  $$ \lim_{(x,y) \rightarrow (3,5)}   \sqrt{ \frac{1}{xy} } $$
+
+***A31)*** $$  \lim_{(x,y) \rightarrow (3,5)}   \sqrt{ \frac{1}{xy} }  =  \sqrt{ \frac{1}{(3)(5)} } $$
+
+$$ \therefore \sqrt{ \frac{1}{15} } $$
+
+<br>
+
+***Q32)***  $$ \lim_{(x,y) \rightarrow (0,1)}  \frac{y^{4}sinx}{x} $$
+
+***A32)*** $$  \lim_{(x,y) \rightarrow (0,1)}  \frac{y^{4}sinx}{x} = \lim_{x \rightarrow 0}  \frac{sinx}{x} \times \lim_{y \rightarrow 1}  y^{4} = 1 $$
+
+$$ \therefore 1 $$
+
+---
+
+**Find $$ \frac{ \delta f}{ \delta x } $$ and $$ \frac{ \delta f}{ \delta y } $$.**
+
+***Q33)***  $$ f(x,y) = \frac{x}{x+y} $$
+
+***A33)***
+
+$$ \frac{ \delta f}{ \delta x } = \frac{1 \times (x+y)-x \times (1+0)}{(x+y)^{2}} = \frac {y}{(x+y)^{2}} $$
+
+$$ \frac{ \delta f}{ \delta y } = \frac{0 \times (x+y)-x \times (0+1)}{(x+y)^{2}} = \frac {-x}{(x+y)^{2}} $$
+
+---
+
+**Find $$ f_{x} $$, $$ f_{y} $$, and $$ f_{z} $$.**
+
+***Q34)***  $$ f(x,y,z) = \frac{z}{ \sqrt{x+y^{2}}} $$
+
+***A34)***
+
+$$ f_{x} = \frac{0 \times ( \sqrt{x+y^{2}} ) - z ( \frac{1}{2} ( x+y^{2} )^{ - \frac{1}{2}}(1)}{( \sqrt{x+y^{2}} )^{2}} $$
+
+$$ =  \frac{ \frac{1}{2} \times -z \times  \frac{1}{ \sqrt{x+y^{2}} }  }{x+y^{2}} =  \frac{ \frac{-z}{2 \sqrt{x+y^{2}} } }{x+y^{2}} $$
+
+$$ \therefore f_{x} =  \frac{-z}{2(x+y^{2}) \sqrt{x+y^{2}} }  $$
+
+$$ f_{y} = \frac{0 \times ( \sqrt{x+y^{2}} ) - z ( \frac{1}{2} ( x+y^{2} )^{ - \frac{1}{2}}(2y)}{( \sqrt{x+y^{2}} )^{2}} $$
+
+$$ =  \frac{ \frac{1}{2} \times -z \times  \frac{2y}{ \sqrt{x+y^{2}} }  }{x+y^{2}} =  \frac{ \frac{-2yz}{2 \sqrt{x+y^{2}} } }{x+y^{2}} =  \frac{-2yz}{2(x+y^{2}) \sqrt{x+y^{2}} } $$
+
+$$ \therefore f_{y} =  \frac{-yz}{(x+y^{2}) \sqrt{x+y^{2}} }  $$
+
+$$ f_{z} = \frac{1 \times ( \sqrt{x+y^{2}} ) - z ( \frac{1}{2} ( x+y^{2} )^{ - \frac{1}{2}}(0)}{( \sqrt{x+y^{2}} )^{2}} $$
+
+$$ \therefore f_{z} =  \frac{ \sqrt{x+y^{2}}}{x+y^{2} }  $$
+
+<br>
+
+***Q35)***  $$ f(x,y,z) = \frac{cos \ y}{ xz^{2}} $$
+
+***A35)***
+
+$$ f_{x} =  \frac{0 \times (xz^{2}) - cos \ y(z^{2})}{(xz^{2})^{2}} =  \frac{-z^{2}cos \ y}{(xz^{2})^{2}} $$
+
+$$ \therefore f_{x} =  \frac{-cos \ y}{x^{2}z^{2}}  $$
+
+$$ f_{y} =  \frac{-sin \ y \times (xz^{2}) - cos \ y(0)}{(xz^{2})^{2}} =  \frac{-xz^{2}sin \ y}{(xz^{2})^{2}} $$
+
+$$ \therefore f_{y} =  \frac{-sin \ y}{xz^{2}}  $$
+
+$$ f_{z} =  \frac{0 \times (xz^{2}) - cos \ y(2xz)}{(xz^{2})^{2}} =  \frac{-2xz \times cos \ y}{(xz^{2})^{2}} $$
+
+$$ \therefore f_{z} =  \frac{-2cos \ y}{xz^{3}}  $$
+
+---
+
+**Solve the problem.**
+
+***Q36)***  Evaluate $$ \frac{dw}{dt} $$ at $$ t = \frac{7}{2} \pi $$ for the function $$ w = \frac{xy}{z} $$, $$ x = sin \ t $$, $$ y = cos \ t $$, $$ z = t^{2} $$.
+
+***A36)***
+
+$$ \frac{dw}{dt} = \frac{dw}{dx} \times \frac{dx}{dt} + \frac{dw}{dy} \times \frac{dy}{dt} + \frac{dw}{dz} \times \frac{dz}{dt} $$
+
+$$ = \frac{(y)(z) - (xy \times 0) }{z^{2}} \times cos \ t + \frac{(x)(z) - (xy \times 0) }{z^{2}} \times -sin \ t + \frac{(0)(z) - (xy \times 1) }{z^{2}} \times 2t $$
+
+$$ = \frac{(yz) cos \ t - (xz)sin \ t - (xy) \ 2t}{z^{2}} $$
+
+$$ = \frac{cos \frac{7}{2} \pi \times (\frac{7}{2} \pi)^{2} \times  cos \ \frac{7}{2} \pi - sin \frac{7}{2} \pi \times  sin \frac{7}{2} \pi \times \frac{7}{2} \pi - sin \frac{7}{2} \pi \times cos \frac{7}{2} \pi \times  \ 2(\frac{7}{2} \pi)}{(\frac{7}{2} \pi)^{4}} $$
+
+- $$ sin \frac{7}{2} \pi = -1 $$, $$ cos \frac{7}{2} \pi = 0 $$
+
+$$ = \frac{-1}{(\frac{7}{2} \pi)^{2}} $$
+
+$$\therefore \frac{-4}{49 \pi^{2}}$$
+
+<br>
+
+***Q37)***  Evaluate $$ \frac{ \delta u} { \delta x} $$ at $$ (x,y,z)=(4,5,2) $$ for the function $$ u = p^{2} - q^{2} - r $$, $$ p = xy $$, $$ q = y^{2} $$, $$ r = xz $$.
+
+***A37)***
+
+$$ \frac{\delta u}{\delta x} = \frac{\delta u}{\delta p} \times \frac{\delta p}{\delta x} + \frac{\delta u}{\delta q} \times \frac{\delta q}{\delta x} + \frac{\delta u}{\delta r} \times \frac{\delta r}{\delta x} $$
+
+$$ = (2p) \times (y) + (-2q) \times (0) + (-1)(z) = 2py - z $$
+
+$$ = 2 \times x \times y \times y \times -z = 2 \times 4 \times 5 \times 5 \times (-2) $$
+
+$$ \therefore 198 $$
+
+---
+
+**Provide an appropriate answer.**
+
+***Q38)***  Find $$ \frac{ \delta w} { \delta r} $$ when $$ r = -1 $$ and $$ s = -3 $$ if $$ w(x, y, z) = xz + y^2 $$, $$ x = 2r + 1 $$, $$ y = r + s $$, and $$ z = r - s $$.
+
+***A38)***
+
+$$ \frac{\delta w}{\delta r} = \frac{\delta w}{\delta x} \times \frac{\delta x}{\delta r} + \frac{\delta w}{\delta y} \times \frac{\delta y}{\delta r} + \frac{\delta w}{\delta z} \times \frac{\delta z}{\delta r} $$
+
+$$ = (z) \times (2) + (2y) \times (1) + (x)(1) = 2z + 2y + x $$
+
+$$ = 2(r-s) + 2(r+s) + (2r+1) = 4-8-1 $$
+
+$$ \therefore -5 $$
+
+---
+
+**Find the derivative of the function at $$ P_{0} $$ in the direction of u.**
+
+***Q40)***  $$ f(x, y) = 9x^{2} + 2y $$, $$ P_{0} (-7, -9) $$, $$ u = 3i - 4j $$
+
+***A40)***
+
+$$ \triangledown f = < 18x, 2 > $$
+
+$$ \triangledown f $$ at $$ ( -7, -9 ) $$ = $$ < 18(-7), 2 > \ \Rightarrow \ < -126, 2 >$$
+
+$$ < -126, 2> \cdot \frac{<3, -4>}{|<3, -4>|} $$
+
+- $$ <3, -4> $$은 $$ u = 3i - 4j $$에서 얻는다.
+
+$$ = \frac{(-126)(3)+(2)(-4)}{ \sqrt{3^{2} + 4^{2}} } $$
+
+$$ \therefore \frac{-386}{5} $$
+
+<br>
+
+***Q41)***  $$ f(x, y, z) = -10x - 9y + 8z $$, $$ P_{0} (-8, 7, 3) $$, $$ u = 3i - 6j - 2k $$
+
+***A41)***
+
+$$ \triangledown f = < -10, -9, 8 > $$
+
+$$ \triangledown f $$ at $$ (-8, 7, 3) $$ = $$ < -10, -9, 8 > $$
+
+$$ < -10, -9, 8 > \cdot \frac{<3, -6, -2>}{|<3, -6, -2>|} $$
+
+$$ = \frac{(-10)(3)+(-9)(-6)+(8)(-2)}{ \sqrt{3^{2} + (-6)^{2} + (-2)^{2}} } $$
+
+$$ \therefore \frac{8}{7} $$
+
+---
+
+**Find all the second order partial derivatives of the given function.**
+
+***Q42)***  $$ f(x, y) = x \ ln^{(y - x)} $$
+
+***A42)***
+
+$$ f_{x} = (1) \times ln^{(y-x)} + (x) \times (\frac{1}{y-x}) \times (-1) $$
+
+$$ \therefore f_{x} = ln^{(y-x)} + \frac{-x}{y-x} $$
+
+$$ \therefore f_{y} = \frac{x}{y-x} $$
+
+$$ f_{xx} = \frac{-1}{y-x} + \frac{(1) \times (y-x) - (-x)(-1)}{(y-x)^{2}} $$
+
+$$ \therefore f_{xx} = \frac{-2y+x}{(y-x)^{2}} $$
+
+$$ \therefore f_{yy} = \frac{-x}{(y-x)^{2}} $$
+
+$$ \therefore f_{xy} = \frac{4}{(y-x)^{2}} $$
+
+<br>
+
+***Q43)***  $$ f(x, y) = \frac{x}{x+y} $$
+
+***A43)***
+
+$$ f_{x} = \frac{(1)(x+y)-(x)(1)}{(x+y)^{2}} = \frac{y}{(x+y)^{2}}$$
+
+$$ f_{y} = \frac{(0)(x+y)-(x)(1)}{(x+y)^{2}} = \frac{-x}{(x+y)^{2}}$$
+
+$$ f_{xx} = \frac{(0)(x+y)^{2} - (y) \times 2(x+y)}{(x+y)^{4}} = \frac{-2y}{(x+y)^{3}} $$
+
+$$ f_{yy} = \frac{(0)(x+y)^{2} - (-x) \times 2(x+y)}{(x+y)^{4}} = \frac{2x}{(x+y)^{3}} $$
+
+$$ f_{xy} = \frac{(1)(x+y)^{2} - (y) \times 2(x+y)}{(x+y)^{4}} = \frac{x-y}{(x+y)^{3}} $$
+
+---
+
+**Provide an appropriate response.**
+
+***Q45)***  Find any local extrema (maxima, minima, or saddle points) of $$ f(x, y) $$ given that $$ f_{x} = -10x + 7y $$ and $$ f_{y} = 7x - 5y $$.
+
+***A45)***
+
+$$ f_{xx} = -10 $$, $$ f_{yy} = -5 $$, $$ f_{xy} = 7 $$
+
+$$ D(x,y) = f_{xx}(x,y) \times f_{yy}(x,y) - f_{xy}(x,y)^{2} $$
+
+$$ = (-10)(-5)-(7)^{2} $$
+
+$$ \therefore D = 1 $$
+
+$$ \therefore f_{xx} = -10 $$
+
+- $$ D > 0 $$ & $$ f_{xx} < 0 $$ $$  \rightarrow  $$ LMAX at $$ (a,b) $$
+- $$ D > 0 $$ & $$ f_{xx} > 0 $$ $$  \rightarrow  $$ LMIN at $$ (a,b) $$
+- $$ D < 0 $$ $$ \rightarrow $$ neither max nor min at $$ (a,b) $$
+- $$ D = 0 $$ $$ \rightarrow $$ test tells as nothing.
+
+$$ \therefore $$ LMAX at $$ (x,y) $$ = $$ (0,0) $$
+
+- $$ (0,0) $$ 부분은 $$ f_{x} $$ 와 $$ f_{y} $$를 사용하여 $$ x $$, $$ y $$를 구하여 좌표를 알아낼 수 있다.
+
+<br>
+
+***Q46)***  Determine whether the function $$ f(x,y) = 4x^{2}y^{2}+7x^{4}y^{4} $$ has a maximum, a minimum, or neither at the origin.
+
+***A46)***
+
+$$ f_{x} = 8xy^{2}+28^{3}y^{4} $$, $$ f_{y} = 8x^{2}y+28x^{4}y^{3} $$
+
+$$ f_{xx} = 8y^{2}  + 84x^{2}y^{4}$$, $$ f_{yy} = 8x^{2}+84x^{4}y^{2}$$
+
+$$ f_{xy} = 16xy + 112x^{3}y^{3}$$
+
+$$ D(x,y) = f_{xx}(0,0) \times f_{yy}(0,0) - f_{xy}(0,0)^{2} $$
+
+$$ \therefore D = 0 $$
+
+$$ \therefore $$ test tells as nothing
+
+---
+
+**Solve the problem.**
+
+***Q47)***  Find the point on $$ 3x+5y+7z=1 $$ that is closest to the origin.
+
+***A47)***
+
+$$ f(x,y,z) = x^{2} + y^{2} + z^{2} $$, $$ g(x,y,z) = 3x+5y+7z-1=0 $$
+
+$$  \triangledown f =  \lambda \triangledown g $$
+
+$$ <2x, 2y, 2z> = \lambda <3,5,7> $$
+
+$$ x = \frac{3}{2}  \lambda $$, $$ y = \frac{5}{2}  \lambda $$, $$ z = \frac{7}{2}  \lambda $$
+
+위에서 구한 $$ x $$, $$ y $$, $$ z $$를 $$ 3x+5y+7z=1 $$에 대입하면,
+
+$$ 3 ( \frac{3}{2}  \lambda ) +5( \frac{5}{2}  \lambda )+7( \frac{7}{2}  \lambda )=1 $$
+
+$$ \frac{83}{2}  \lambda = 1 $$
+
+$$ \lambda = \frac{2}{83}$$
+
+$$ \therefore (x,y,z) = (\frac{3}{83},\frac{5}{83},\frac{7}{83}) $$
+
+<br>
+
+***Q48)***  The planes  $$ 3x + 5y = 1 $$ and $$ 5y + 7z = 1 $$ intersect in a line. Find the point on that line closest to the origin.
+
+***A48)***
+
+$$ f(x,y,z) = x^{2} + y^{2} + z^{2} $$, $$ g(x,y,z) = 3x + 5y - 1=0 $$, $$ h(x,y,z) = 5y + 7z - 1=0 $$
+
+$$  \triangledown f =  \lambda \triangledown g + \mu  \triangledown h $$
+
+$$ <2x, 2y, 2z> = \lambda <3,5,0> + \mu <0,5,7> $$
+
+- 나머지는 ***Q47*** 를 참고하여, $$ \lambda $$와 $$ \mu $$를 구한뒤, 대입하여 좌표를 알아내면 된다.
