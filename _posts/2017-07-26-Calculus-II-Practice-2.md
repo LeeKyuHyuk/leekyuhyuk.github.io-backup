@@ -286,3 +286,113 @@ $$ L= \int_{-1}^{2} \sqrt{2025t^{4}}dt = \int_{-1}^{2} 45t^{2}dt $$
 $$ (15 \times (2)^{3} ) - (15 \times (-1)^{3} ) $$
 
 $$ \therefore 135 $$
+
+---
+
+**Evaluate the line integral of $$ f(x,y) $$ along the curve C.**
+
+***Q35)*** $$ f(x,y)= \frac{x^{5}}{ \sqrt{1+4y} } $$, $$ C: y = x^{2} $$, $$ 0  \leq x  \leq 3 $$
+
+***A35)***
+
+$$ \int_{0}^{3} \frac{x^{5}}{ \sqrt{1+4y}} ds =  \int_{0}^{3} \frac{x^{5}}{ \sqrt{1+4x^{2}}} \sqrt{1+4x^{2}} dx $$
+
+$$ = \int_{0}^{3} x^{5} dx $$
+
+$$ \frac{3^{6}}{6} - \frac{0^{6}}{6} = \frac{3^{5}}{2}$$
+
+$$ \therefore \frac{243}{2} $$
+
+<br>
+
+***Q36)*** $$ f(x, y) = x^{2} + y^{2} $$, $$ C: y = -2x - 4 $$, $$ 0  \leq x  \leq 3 $$
+
+***A36)***
+
+$$ dy = -2dx $$
+
+$$ \int_{0}^{3} (x^{2} + y^{2}) ds =  \int_{0}^{3} (x^{2} + (-2x-4)^{2})\sqrt{5}dx $$
+
+$$ = \sqrt{5} \int_{0}^{3} (5x^{2} + 16x + 16) dx $$
+
+$$ = \sqrt{5} ( 5 \times 3^{2} + 8 \times 3^{2} + 16 \times 3 ) $$
+
+$$ \therefore 165 \sqrt{5} $$
+
+---
+
+**Evaluate the line integral along the curve C.**
+
+***Q37)*** $$ \int_{C} (y+z) ds $$, $$ C $$ is the straight-line segment $$ x = 0 $$, $$ y = 3 - t $$, $$ z = t $$ from $$ (0, 3, 0) $$ to $$ (0, 0, 3) $$
+
+***A37)***
+
+$$ \int_{0}^{3} (3-t+t) \sqrt{0+1+1} dt $$
+
+$$ = \int_{0}^{3} 3 \sqrt{2} dt $$
+
+$$ \therefore 9 \sqrt{2} $$
+
+---
+
+**Apply Green's Theorem to evaluate the integral.**
+
+***Q41)*** $$ \oint_{c} (5y + x) dx + (y + 4x) dy $$
+
+$$ C $$: The circle $$ (x - 2)^{2} + (y - 3)^{2} = 4 $$
+
+***A41)***
+
+$$ \oint_{c} (4-5) dA = \oint_{c} -1 dA $$
+
+$$ \therefore -4 \pi $$
+
+<br>
+
+***Q42)*** $$ \oint_{c} (y^{2} + 3) dx + (x^{2} + 6) dy $$
+
+$$ C $$: The triangle bounded by $$ x = 0 $$, $$ x + y = 5 $$, $$ y = 0 $$
+
+***A42)***
+
+$$ 0 \leq x \leq 5 $$, $$ 0 \leq y \leq -x+5 $$
+
+$$ \int_{0}^{5} \int_{0}^{-x+5} 2x-2y \ dydx $$
+
+$$ \therefore 0 $$
+
+---
+
+**Find the divergence of the field F.**
+
+***Q43)*** $$ F = 15xz^{2}i + 4yj - 5z^{3}k $$
+
+***A43)***
+
+$$ \overrightarrow{F} = <15xz^{2}, 4y, -5z^{3} > $$
+
+Divergence $$ \overrightarrow{F} = 15z^{2} +4 -15z^{2} $$
+
+$$ \therefore 4 $$
+
+---
+
+**Evaluate the surface integral of G over the surface S.**
+
+***Q46)*** $$ S $$ is the plane $$ x + y + z = 2 $$ above the rectangle $$ 0 \leq x \leq 3 $$ and $$ 0 \leq y \leq 2 $$; $$ G(x,y,z) = 4z $$
+
+***A46)***
+
+$$ \overrightarrow{r} = <x,y,z> = < x, y, z-x-y > $$
+
+$$ \overrightarrow{r}_x = <1, 0, -1> $$
+
+$$ \overrightarrow{r}_y = <0, 1, -1> $$
+
+$$ \overrightarrow{r}_x \times \overrightarrow{r}_y = <1, 1, 1> $$
+
+$$ \mid \overrightarrow{r}_x + \overrightarrow{r}_y \mid = \sqrt{3} $$
+
+$$ 4\sqrt{3}  \int_{0}^{3} \int_{0}^{2} 2-x-y \ dydx $$
+
+$$ \therefore -12\sqrt{3} $$
