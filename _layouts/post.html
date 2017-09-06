@@ -1,16 +1,18 @@
 ---
 layout: default
 ---
-<a id="top"></a>
-<article>
+<article class="article appear">
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$\$$','$\$$'], ['$\$\$$','$\$\$$']]}, processEscapes: true, displayAlign: "left"}); </script>
-  <h1 id="firstHeading" class="firstHeading" lang="en">{{ page.title }}</h1>
-  <div id="bodyContent" class="mw-body-content">
-      {% if page.category %}
-        <div id="contentSub">Category: <a href="/category/{{ page.category | slugify | prepend: site.baseurl }}.html" rel="category">{{ page.category | replace:'-', ' ' }}</a>　|　Date: <a>{{ page.date }}</a>
-        </div>
-      {% endif %}
-      {{ content }}
-  </div>
+  <header class="article-header">
+    <h1>{{ page.title }}</h1>
+    <div class="article-list-footer">
+      <span class="article-list-date">{{ page.date }}</span>
+      <span class="article-list-divider">-</span>
+      <div class="article-list-tags">
+        <a href="/category/{{ page.category | slugify | prepend: site.baseurl }}.html" rel="category">{{ page.category | replace:'-', ' ' }}</a>
+      </div>
+    </div>
+  </header>
+  {{ content }}
 </article>

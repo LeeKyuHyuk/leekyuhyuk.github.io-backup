@@ -1,13 +1,8 @@
 ---
 layout: default
 ---
-<br>
-<h3>Categorie: Python</h3>
-<br>
-<hr>
-
 <ul class="article-list">
-  {% for post in site.categories.Python %}
+  {% for post in site.posts %}
     <li class="article-list-item">
       <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}">
         <h5>{{ post.title }} <span class="icon icon-arrow-right"></span></h5>

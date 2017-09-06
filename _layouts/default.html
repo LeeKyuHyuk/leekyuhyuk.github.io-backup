@@ -1,44 +1,38 @@
-<!DOCTYPE html>
-<html class="client-nojs" lang="ko">
-{% include head.html %}
-<body class="mediawiki">
-    <div id="mw-page-base" class="noprint"></div>
-    <div id="mw-head-base" class="noprint"></div>
-    <div id="content" class="mw-body" role="main">
+<!doctype html>
+<html lang="ko">
+ {% include head.html %}
+ <body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        {% include nav.html %}
         {{ content }}
+        {% include footer.html %}
+      </div>
     </div>
-    <div id="mw-navigation">
-        <h2>Navigation menu</h2>
-        <div id="mw-head">
-            <div id="right-navigation">
-                <div id="p-search" role="search">
-                    <div id="google-search">
-                        <script>
-                          (function() {
-                            var cx = '008763842735064548727:hes-aggyk-8';
-                            var gcse = document.createElement('script');
-                            gcse.type = 'text/javascript';
-                            gcse.async = true;
-                            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                            var s = document.getElementsByTagName('script')[0];
-                            s.parentNode.insertBefore(gcse, s);
-                          })();
-                        </script>
-                        <gcse:search></gcse:search>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% include sidebar.html %}
-    </div>
-    {% include footer.html %}
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-61796050-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-</body>
+  </main>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-61796050-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="{{ "/js/jquery.fluidbox.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+  <script src="{{ "/js/webfonts.js?version=20170907" | prepend: site.baseurl | prepend: site.url }}"></script>
+  <script src="{{ "/js/scrollappear.js?version=20170907" | prepend: site.baseurl | prepend: site.url }}"></script>
+  <script>
+    $(function() {
+      // ScrollAppear
+      if (typeof $.fn.scrollAppear === 'function') {
+        $('.appear').scrollAppear();
+      }
+
+      // Fluidbox
+      $('.fluidbox-trigger').fluidbox();
+    });
+  </script>
+  </body>
 </html>
