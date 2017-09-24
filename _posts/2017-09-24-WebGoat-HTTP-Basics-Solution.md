@@ -26,6 +26,6 @@ Google Chrome에서 '설정' - '시스템' - '프록시 설정 열기'하면 나
 
 `/WebGoat/attack?Screen=16&menu=10`로  `person=leekyuhyuk&SUBMIT=Go%21` 데이터를 POST 방식으로 보내고 있습니다.
 
-만약 `person=leekyuhyuk` 부분을 person 'cba'로 변경한 뒤, Forward를 누르게 되면, WebGoat 화면에는 'abc'가 출력되게 됩니다.
+만약 `person=leekyuhyuk` 부분을 `person=cba`로 변경한 뒤, Forward를 누르게 되면, WebGoat 화면에는 'abc'가 출력되게 됩니다.
 
 ![WebGoat 5.4 - HTTP Basics]({{ site.url }}/assets/image/2017-09-24-WebGoat-HTTP-Basics-Solution_5.png)
