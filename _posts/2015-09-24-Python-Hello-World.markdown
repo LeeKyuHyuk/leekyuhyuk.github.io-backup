@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "1장: \"Hello World!\""
+title:  "1장: Hello World!"
 date:   2015-09-24 09:20:27 +0900
 category: Python
 image:  2015-09-24-Python-Hello-World.jpg

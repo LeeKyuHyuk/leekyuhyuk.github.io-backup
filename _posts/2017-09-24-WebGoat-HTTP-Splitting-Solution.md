@@ -52,7 +52,7 @@ Content-length: 47
 ```
 
 위의 내용을 '[PHP Charset Encoder](http://yehg.net/encoding/)'에 접속하여 encodeURIComponent 합니다.
-%0d%0a
+
 나온 값 `korea%0d%0aContent-length%3A%200%0d%0a%0d%0aHTTP%2F1.1%20200%20OK%0d%0aContent-Type%20%3A%20text%2Fhtml%0d%0aLast-Modified%3A%20Sun%2C%204%20Oct%202020%2014%3A30%3A00%20GMT%0d%0aContent-length%3A%2034%0d%0a%3Chtml%3E%3CH1%3EHello%20world!%3C%2FH1%3E%3C%2Fhtml%3E`을 'Search by country'에 입력한 뒤, 'Search!' 버튼을 눌러 확인해봅니다.
 
 ![WebGoat 5.4 - HTTP Splitting]({{ site.url }}/assets/image/2017-09-24-WebGoat-HTTP-Splitting-Solution_4.png)
