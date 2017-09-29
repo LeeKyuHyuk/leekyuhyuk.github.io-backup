@@ -12,13 +12,13 @@
 html {
     font-family: sans-serif;
     /* 1 */
-    
+
     line-height: 1.15;
     /* 2 */
-    
+
     -ms-text-size-adjust: 100%;
     /* 3 */
-    
+
     -webkit-text-size-adjust: 100%;
     /* 3 */
 }
@@ -63,7 +63,7 @@ figcaption,
 figure,
 main {
     /* 1 */
-    
+
     display: block;
 }
 /**
@@ -82,10 +82,10 @@ hr {
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     /* 1 */
-    
+
     height: 0;
     /* 1 */
-    
+
     overflow: visible;
     /* 2 */
 }
@@ -97,7 +97,7 @@ hr {
 pre {
     font-family: monospace, monospace;
     /* 1 */
-    
+
     font-size: 1em;
     /* 2 */
 }
@@ -111,7 +111,7 @@ pre {
 a {
     background-color: transparent;
     /* 1 */
-    
+
     -webkit-text-decoration-skip: objects;
     /* 2 */
 }
@@ -132,10 +132,10 @@ a:hover {
 abbr[title] {
     border-bottom: none;
     /* 1 */
-    
+
     text-decoration: underline;
     /* 2 */
-    
+
     text-decoration: underline dotted;
     /* 2 */
 }
@@ -165,7 +165,7 @@ kbd,
 samp {
     font-family: monospace, monospace;
     /* 1 */
-    
+
     font-size: 1em;
     /* 2 */
 }
@@ -257,13 +257,13 @@ select,
 textarea {
     font-family: sans-serif;
     /* 1 */
-    
+
     font-size: 100%;
     /* 1 */
-    
+
     line-height: 1.15;
     /* 1 */
-    
+
     margin: 0;
     /* 2 */
 }
@@ -275,7 +275,7 @@ textarea {
 button,
 input {
     /* 1 */
-    
+
     overflow: visible;
 }
 /**
@@ -286,7 +286,7 @@ input {
 button,
 select {
     /* 1 */
-    
+
     text-transform: none;
 }
 /**
@@ -343,19 +343,19 @@ legend {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /* 1 */
-    
+
     color: inherit;
     /* 2 */
-    
+
     display: table;
     /* 1 */
-    
+
     max-width: 100%;
     /* 1 */
-    
+
     padding: 0;
     /* 3 */
-    
+
     white-space: normal;
     /* 1 */
 }
@@ -367,7 +367,7 @@ legend {
 progress {
     display: inline-block;
     /* 1 */
-    
+
     vertical-align: baseline;
     /* 2 */
 }
@@ -388,7 +388,7 @@ textarea {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     /* 1 */
-    
+
     padding: 0;
     /* 2 */
 }
@@ -408,7 +408,7 @@ textarea {
 [type="search"] {
     -webkit-appearance: textfield;
     /* 1 */
-    
+
     outline-offset: -2px;
     /* 2 */
 }
@@ -428,7 +428,7 @@ textarea {
 ::-webkit-file-upload-button {
     -webkit-appearance: button;
     /* 1 */
-    
+
     font: inherit;
     /* 2 */
 }
@@ -516,14 +516,14 @@ template {
     position: fixed;
     top: -100%;
     /* Negative top and bottom is to fix some Safari cases where image got blurry */
-    
+
     left: 0;
     bottom: -100%;
     /* Negative top and bottom is to fix some Safari cases where image got blurry */
-    
+
     right: 0;
     /* Transition time for overlay is halved to ensure that flickering doesn't happen */
-    
+
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
@@ -581,7 +581,7 @@ template {
 }
 .fluidbox__loader::before {
     /* You can replace this with any color you want, or even a loading gif if desired */
-    
+
     background-color: rgba(255, 255, 255, 0.85);
     content: '';
     -webkit-transform-style: preserve-3d;
@@ -1271,4 +1271,34 @@ div.highlighter-rouge {
     opacity: 1;
     -webkit-transition: opacity 0.5s ease-in-out;
     transition: opacity 0.5s ease-in-out;
+}
+.enable-button {
+    color: #FFFFFF;
+    background: #000000;
+    border: 0px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    display: inline-block;
+    text-decoration: none;
+}
+.enable-button:hover, .enable-button:active {
+    color:#000000;
+    background:#FFFFFF;
+}
+.disable-button {
+    color:#000000;
+    background:#FFFFFF;
+    border: 1px solid #000000;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    display: inline-block;
+    text-decoration: none;
+}
+.disable-button:hover, .disable-button:active {
+    color: #FFFFFF;
+    background: #000000;
 }
