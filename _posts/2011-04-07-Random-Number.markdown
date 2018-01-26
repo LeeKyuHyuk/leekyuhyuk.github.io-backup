@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "6장: 난수 생성"
+title:  "7장: 난수 생성"
 date:   2011-04-07 12:27:51 +0900
 category: C
 ---
 
-6장에서는 아래의 내용을 설명할 것입니다:
+7장에서는 아래의 내용을 설명할 것입니다:
 
 - `rand()`
 - `srand()`
@@ -18,7 +18,7 @@ category: C
 #include <stdlib.h>
 #include <time.h>
 
-int main() {
+int main(void) {
     int i;
     int number;
     srand(time(NULL));
