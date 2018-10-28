@@ -7,8 +7,12 @@ category: Linux
 
 # Build Cross Compiler
 
-Host와 Target의 아키텍처가 다르다면 Host에서 빌드한 바이너리를 Target에서 실행할 수 없습니다.  
-이때 사용하는게 Cross Compiler인데, Cross Compiler라는 것은 Host에서 Target에서 돌아가는 프로그램을 컴파일해주는 컴파일러입니다.  
+> **크로스 컴파일러(Cross Compiler)**는 컴파일러가 실행되는 플랫폼이 아닌 다른 플랫폼에서 실행 가능한 코드를 생성할 수 있는 컴파일러이다.  
+> 크로스 컴파일러 툴은 임베디드 시스템 혹은 여러 플랫폼에서 실행파일을 생성하는데 사용된다.  
+> 이것은 운영 체제를 지원하지 않는 마이크로컨트롤러와 같이 컴파일이 실현 불가능한 플랫폼에 컴파일하는데 사용된다.  
+> 이것은 시스템이 사용하는데 하나 이상의 플랫폼을 쓰는 반가상화에 이 도구를 사용하는 것이 더 일반적이게 되었다.  
+> [Wikipedia - 크로스 컴파일러](https://ko.wikipedia.org/wiki/크로스_컴파일러)
+
 ![GNU GCC Cross Compiler]({{ site.url }}/assets/image/2018-10-27-How-to-build-ARM-Linux-Kernel-and-Simple-RAMDisk_1.png)  
 Picture Source : *[Preshing on Programming - How to Build a GCC Cross-Compiler
 ](https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler)*

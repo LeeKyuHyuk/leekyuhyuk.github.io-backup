@@ -13,7 +13,7 @@ wget -c https://ftp.gnu.org/gnu/glibc/glibc-2.28.tar.xz
 wget -c https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz
 wget -c https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz
 wget -c https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.1.tar.xz
-wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz
+wget -c https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.19.tar.xz
 
 # Step 2. Build GNU Binutils
 tar xvJf binutils-2.31.1.tar.xz
