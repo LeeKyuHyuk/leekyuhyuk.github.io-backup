@@ -16,7 +16,7 @@ category: Raspberry-Pi
   - 범용 레지스터 `R15`는 특수 레지스터 `PC`로 사용됩니다.
     - `PC`는 다음 실행할 프로그램의 주소를 가지고 있는 레지스터입니다.
   - `CPSR`이라는 상태 레지스터를 가지고 있습니다.  
-![](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_8.jpg)  
+![Operand]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_8.jpg)  
   - `Rs`, `Rd`는 반드시 레지스터(`R0`~`R15`)이어야 합니다.
     - `OP1`은 항상 레지스터 입니다.
   - **`OP2`는 레지스터 일수도 있고, 레지스터가 아닐수도 있습니다.**
@@ -58,13 +58,13 @@ category: Raspberry-Pi
 #### 사용된 상수가 `MOV` 명령에서 사용 가능한지 불가능한지 판단해보자
 
 - `MOV  R0, #0x7F00` : **가능**
-![Example 1](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_1.png)
+![Example 1]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_1.png)
 
 - `MOV  R0, #0x30C0` : **가능**
-![Example 2](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_2.png)
+![Example 2]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_2.png)
 
 - `MOV  R3, #0x14E` : **불가능**
-![Example 3](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_3.png)
+![Example 3]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_3.png)
 
 - `LDR`을 사용하면, **범위 제한 없는 32비트 값으로 표현 가능**
   - 실제 상수 값은 메모리에 존재하며 레지스터 참조로 변환됩니다.
@@ -92,7 +92,7 @@ category: Raspberry-Pi
 
 #### `LDR`, `STR` 쉽게 이해하는 방법
 
-![](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_4.png)
+![LDR, STR Tip]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_4.png)
 
 ### Label
 
@@ -231,7 +231,7 @@ START:  MOV R0, #10       @ R0 레지스터에 상수 10을 저장
 
 - **[문제]** `0x1000`의 4~7번 비트를 `1010`으로 변경하는 어셈블리 코드를 작성하세요.
 
-![](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_5.png)
+![Example 4]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_5.png)
 
 ```assembly
   LDR R0, =0x1000           @ R0에 상수 0x1000을 넣습니다.
@@ -296,7 +296,7 @@ START:  MOV R0, #10       @ R0 레지스터에 상수 10을 저장
 
 ### `CPSR`(상태레지스터)과 Flag
 
-![https://www.wikinote.org/Main/Savitribai-Phule-Pune-University/ENTC/AP-TE/Unit-1/Registers-CPSR-SPSR/](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_6.jpg)
+![https://www.wikinote.org/Main/Savitribai-Phule-Pune-University/ENTC/AP-TE/Unit-1/Registers-CPSR-SPSR/]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_6.jpg)
 
 비교 연산을 할때는 NZCV만 사용한다
 - N (Negative) : 연산결과가 음수인 경우
@@ -402,7 +402,7 @@ START:  MOV R0, #10       @ R0 레지스터에 상수 10을 저장
   - `BL` : 서브루틴 호출 명령
   - `label` : 서브루틴의 상대주소 값
   - `B`와 달리 복귀한 주소(따음 명령 주소) 값을 `R14`에 저장합니다.  
-  ![](({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_7.png)
+  ![Subroutine]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-2_7.png)
   - `BL`은 분기 주소로 레지스터를 사용하지 못합니다.
 
 #### 서브루틴 호출과 복귀
