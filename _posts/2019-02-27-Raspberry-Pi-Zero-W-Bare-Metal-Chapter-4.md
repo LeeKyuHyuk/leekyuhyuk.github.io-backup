@@ -153,7 +153,7 @@ SDCard를 FAT32로 포맷합니다.
 SDCard를 Raspberry Pi Zero에 넣고, 부팅하면 아래와 같이 ACT LED가 켜지고 꺼지는 것을 확인할 수 있습니다.  
 ![Raspberry Pi Zero ACT LED On Off]({{ site.url }}/assets/image/2019-02-27-Raspberry-Pi-Zero-W-Bare-Metal-Chapter-4.gif)
 
-### `volatile`을 왜 사용할까요?
+### **`volatile`을 왜 사용할까요?**
 
 ```c
 int main(void) {
