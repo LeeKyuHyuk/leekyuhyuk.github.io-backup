@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[Bare Metal] Chapter 3: GPIO를 제어해보자! (ARM Assembly)"
+title:  "[Bare Metal] Chapter 4: GPIO를 제어해보자! (C)"
 date:   2019-02-27 21:23:44 +0900
 category: Raspberry-Pi
 ---
